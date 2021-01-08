@@ -1,0 +1,42 @@
+/* pages/userManger/userManger.wxss */
+.base-information {
+        width: 95%;
+        margin: 0rpx auto;
+        padding-top: 10rpx;
+}
+
+.list {
+        /* border: 1rpx rgb(78, 232, 250) solid; */
+        border-radius: 10rpx;
+        background-color: rgba(44, 115, 177, 0.5);
+        margin-bottom: 10rpx;
+        min-height: 200rpx;
+        color: #fff;
+        padding: 30rpx;
+
+}
+
+
+.list .text {
+        margin-left: 2.5%;
+        width: 100%;
+}
+
+.unit {
+        float: right;
+        margin-right: calc(5%);
+}
+
+.line {
+        border-top: 1px rgb(78, 232, 250) solid;
+        width: 95%;
+        margin: 20rpx 2.5%;
+}
+
+.button {
+        color:#fff;
+/* position: fixed;
+width:100%;
+bottom:100rpx; */
+        background-color: #0CACF6;
+}

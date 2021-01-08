@@ -1,0 +1,19 @@
+/* components/titleIcon/titleIcon.wxss */
+.title-icon{
+        margin-left: 20rpx;
+        height: 50rpx;
+        color: #43DFFF;
+        display: flex;
+
+}
+.title-icon-text{
+        margin-left:10rpx;
+}
+.title-icon-icon{
+        height: 50rpx;
+        width: 20rpx;
+        border-radius: 4px;
+        background-color: #43DFFF;
+        background-image: linear-gradient(#43DFFF, #0F4D98);
+
+}

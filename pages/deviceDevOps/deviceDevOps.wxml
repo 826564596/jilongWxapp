@@ -1,0 +1,123 @@
+<!--pages/deviceDevOps/deviceDevOps.wxml-->
+<!-- 设备运维 -->
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+<navigation>
+	<view slot="backText"></view>
+	<view slot="content">设备运维</view>
+</navigation>
+<view class="container" style="min-height: calc(100% - {{CustomBar + 50}}px);padding-bottom:50px">
+	<my-tabs bind:active="setActive" itemList="{{itemList}}" active="{{active}}" />
+	<!-- 设备故障 -->
+	<view wx:if="{{active == 0}}">
+		<view class="base-information">
+			<view class="high-input">
+				<view class="input class" bindtap="componyFoucs">
+					<view wx:if="{{!company.content}}">请选择公司</view>
+					<view wx:if="{{company.content}}">{{company.content}}</view>
+				</view>
+				<view class="date-icon center" style="border-left:none">
+					<view class="top"></view>
+				</view>
+			</view>
+
+			<view class="two-intput">
+				<view class="high-input" style="width:60%">
+					<view style="margin-top:10rpx; margin-bottom:10rpx;width:100%"
+						class="input class" bindtap="deviceFoucs">
+						<view wx:if="{{!device.content}}">请选择设备</view>
+						<view wx:if="{{device.content}}">{{device.content}}</view>
+						<view style="float:left"></view>
+					</view>
+					<view class="date-icon center " style="border-left:none;margin-top:10rpx;">
+						<view class="top"></view>
+					</view>
+				</view>
+
+
+				<view style="margin-top:10rpx; margin-left:10rpx;width:40%" class="input class"
+					bindtap="dateFoucs">
+					<view wx:if="{{!date.content}}">请选择日期</view>
+					<view wx:if="{{date.content}}">{{date.content}}</view>
+				</view>
+				<view class="date-icon center" style="margin-top:10rpx;">
+					<image style="width:40rpx;height:40rpx" src="../../images/deviceDevOps/date.png"
+						mode="aspectFit"></image>
+				</view>
+			</view>
+			<view class="List" wx:for="{{faultList}}">
+				<view class="List-content">
+					<view class="text">设备名称：{{item.device_name}}</view>
+					<view class="line"></view>
+					<view class="text">设备编号：{{item.device_id}}</view>
+					<view class="line"></view>
+					<view class="text">设备型号：{{item.device_model}}</view>
+					<view class="line"></view>
+					<view class="text">故障信息：{{item.fault_message}}</view>
+					<view class="line"></view>
+					<view class="text">故障时间：{{item.fault_time}}</view>
+				</view>
+
+
+
+			</view>
+
+		</view>
+	</view>
+	<!-- I/O状态 -->
+	<view wx:if="{{active == 1}}">
+		<view class="base-information">
+			<!-- 下拉框 -->
+			<view class="high-input">
+				<view class="input class" bindtap="componyFoucs">
+					<view wx:if="{{!company.content}}">请选择公司</view>
+					<view wx:if="{{company.content}}">{{company.content}}</view>
+				</view>
+				<view class="date-icon center" style="border-left:none">
+					<view class="top"></view>
+				</view>
+			</view>
+			<!-- 下拉框 -->
+			<view class="high-input">
+				<view style="margin-top:10rpx; margin-bottom:10rpx;width:100%" class="input class"
+					bindtap="deviceFoucs">
+					<view wx:if="{{!device.content}}">请选择设备</view>
+					<view wx:if="{{device.content}}">{{device.content}}</view>
+					<view style="float:left"></view>
+				</view>
+				<view class="date-icon center " style="border-left:none;margin-top:10rpx;">
+					<view class="top"></view>
+				</view>
+			</view>
+			<!-- 输入 -->
+			<view wx:for="{{paras}}" class="IO" wx:for-item="a">
+				<view class="IO-item-paras" wx:for="{{a.values}}" wx:for-index="idx">
+					<view class="item">
+						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}"></view>
+						{{a.name}}.{{filters.toString(idx,16)}}
+					</view>
+				</view>
+			</view>
+			<!-- 输出 -->
+			<view wx:for="{{output}}" class="IO" wx:for-item="a">
+				<view class="IO-item-paras" style="color:#fff" wx:for="{{a.values}}" wx:for-index="idx">
+					<view class="item">
+						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}"></view>
+						{{a.name}}.{{filters.toString(idx,16)}}
+					</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<my-picker show="{{company.show}}" title="选择公司" columns="{{ company.pickerList}}" bind:setItem="setCompony">
+	</my-picker>
+	<my-picker show="{{device.show}}" title="选择设备" columns="{{ device.pickerList}}" bind:setItem="setDevice">
+	</my-picker>
+	<van-popup show="{{ date.show }}" z-index='10000' bind:close="onClose" position="bottom">
+		<van-datetime-picker type="date" value="{{ currentDate }}" bind:confirm="confirm" bind:cancel="cancel"
+			min-date="{{ minDate }}" formatter="{{ formatter }}" />
+	</van-popup>
+	<!-- <my-date-picker show="{{ date.show }}" type="date" value="{{ currentDate }}" minDate="{{minDate}}" ></my-date-picker> -->
+
+</view>

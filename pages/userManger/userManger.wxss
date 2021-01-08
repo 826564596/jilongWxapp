@@ -1,0 +1,54 @@
+/* pages/userManger/userManger.wxss */
+.base-information {
+        width: 95%;
+        margin: 0rpx auto;
+        padding-top: 10rpx;
+}
+
+.list {
+        /* border: 1rpx rgb(78, 232, 250) solid; */
+        border-radius: 10rpx;
+        background-color: rgba(44, 115, 177, 0.5);
+        margin-bottom: 10rpx;
+        min-height: 200rpx;
+        color: #fff;
+        padding: 30rpx;
+
+}
+
+
+.list .text {
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        width: 90%;
+        overflow: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+
+}
+
+.unit {
+        float: right;
+        margin-right: calc(5%);
+}
+
+.line {
+        border-top: 1px rgb(78, 232, 250) solid;
+        width: 95%;
+        margin: 20rpx 2.5%;
+}
+
+.button{
+        position: fixed;
+        color:#fff;
+        width: 100%;
+        bottom: 0;
+        border-bottom-left-radius: 0%;
+        border-bottom-right-radius: 0%;
+        background-color:#0CACF6;
+} 
+.btn{
+        color:#fff;
+        width:40%;
+        background-color:#0CACF6;
+}

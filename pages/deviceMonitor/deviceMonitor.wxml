@@ -1,0 +1,295 @@
+<!--pages/deviceMonitor/deviceMonitor.wxml-->
+<!-- 设备监控 -->
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+<navigation isBack="{{true}}">
+	<view slot="backText"></view>
+	<view slot="content">设备监控</view>
+</navigation>
+<view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
+
+	<my-tabs bind:active="setActive" itemList="{{itemList}}" active="{{active}}" />
+	<!-- 设备信息 -->
+	<view wx:if="{{active == 0}}" style="min-height: calc(100vh - {{CustomBar + 60}}px);">
+		<!-- <titleIcon title="设备详情" /> -->
+		<view class="device-item">
+			<view class="device-item-left center">
+				<image src="{{url }}{{image_path}}" />
+			</view>
+			<view class="device-item-right">
+				<!-- 运行、待机、故障、离线 -->
+				<view class="device-item-right-title">
+					<image wx:if="{{deviceInfo.state =='运行'}}" src="{{bgURL}}deviceList/运行图标.png">
+					</image>
+					<image wx:if="{{deviceInfo.state =='待机'}}" src="{{bgURL}}deviceList/待机图标.png">
+					</image>
+					<image wx:if="{{deviceInfo.state =='故障'}}" src="{{bgURL}}deviceList/故障图标.png">
+					</image>
+					<image wx:if="{{deviceInfo.state =='离线'}}" src="{{bgURL}}deviceList/警报图标.png ">
+					</image>
+					{{deviceInfo.state}}
+				</view>
+				<view>设备名称:{{deviceInfo.device_name}}</view>
+				<view>设备编号:{{deviceInfo.device_id}}</view>
+				<view>网关编号:{{deviceInfo.mac}}</view>
+				<view>设备型号:{{deviceInfo.device_model}}</view>
+				<view>型号名称:{{deviceInfo.device_type}}</view>
+				<view>运行时间:{{filters.secondToHMS(deviceInfo.today_run_time)}}</view>
+				<view style="margin-bottom:20rpx;">停机时间:{{filters.secondToHMS(deviceInfo.today_standby_time + deviceInfo.today_fault_time)}}</view>
+
+
+
+			</view>
+		</view>
+		<!-- <titleIcon title="设备基本情况" /> -->
+		<view class="base-infomation">
+			<view class="title" bindtap="changeItem">
+				<view class="one {{!active2  ? 'active':'unactive' }}">当日能耗</view>
+				<view class="two {{active2 ? 'active':'unactive' }}">当班能耗</view>
+			</view>
+			<!-- wx:if="{{!active2}}" -->
+			<!-- style="{{ !active2 ?'display:block' :'display:none' }}" -->
+			<view wx:if="{{!active2}}">
+				<view class="echart-icon">
+					<view>
+						<view style="background-color:#1CE0EF;" class="echart-icon-size"></view>
+						当日产量
+					</view>
+					<view>
+						<view style="background-color:#F03F58;" class="echart-icon-size"></view>
+						用电量
+					</view>
+					<view>
+						<view style="background-color:#2190FE;" class="echart-icon-size"></view>
+						用水量
+					</view>
+					<view>
+						<view style="background-color:#04CAA2;" class="echart-icon-size"></view>
+						天然气/蒸汽用量
+					</view>
+
+				</view>
+				<view class="echart-size">
+					<ec-canvas id="mychart-dom-bar-today" canvas-id="mychart-bar"
+						ec="{{ ecToday }}">
+					</ec-canvas>
+				</view>
+				<view class="three-icon">
+					<!-- 用电量 -->
+					<view class="three-icon-size">
+						<view class="three-icon-size-img ones center">
+							{{today_unit_electricity}}kwh
+						</view>
+
+						<view>用电量</view>
+					</view>
+					<!-- 用水量 -->
+					<view class="three-icon-size">
+						<view class="three-icon-size-img twos center">
+							{{today_unit_water}}m³
+						</view>
+						<view>用水量</view>
+					</view>
+					<!-- 天然气 -->
+					<view class="three-icon-size">
+						<view class="three-icon-size-img threes center">
+							{{today_unit_gas}}m³
+						</view>
+						<view>天然气</view>
+					</view>
+				</view>
+			</view>
+			<view class="tab-item" wx:if="{{active2}}">
+				<view class="echart-icon">
+					<view>
+						<view style="background-color:#FFA83E;" class="echart-icon-size ">
+						</view>
+
+						当班产量
+					</view>
+					<view>
+						<view style="background-color:#F03F58;" class="echart-icon-size ">
+						</view>
+						用电量
+					</view>
+					<view>
+						<view style="background-color:#2190FE;" class="echart-icon-size ">
+						</view>
+						用水量
+					</view>
+					<view>
+						<view style="background-color:#04CAA2;" class="echart-icon-size"></view>
+						天然气/蒸汽用量
+					</view>
+
+				</view>
+				<view class="echart-size">
+					<ec-canvas id="mychart-dom-bar-class" canvas-id="mychart-bar1"
+						ec="{{ ecClass }}">
+					</ec-canvas>
+				</view>
+				<view class="three-icon">
+					<!-- 用电量 -->
+					<view class="three-icon-size">
+						<view class="three-icon-size-img ones center">
+							{{class_unit_electricity}}kwh
+						</view>
+
+						<view>用电量</view>
+					</view>
+					<!-- 用水量 -->
+					<view class="three-icon-size">
+						<view class="three-icon-size-img twos center">
+							{{class_unit_water}}m³
+						</view>
+						<view>用水量</view>
+					</view>
+					<!-- 天然气 -->
+					<view class="three-icon-size">
+						<view class="three-icon-size-img threes center">
+							{{class_unit_gas}}m³
+						</view>
+						<view>天然气</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+
+	</view>
+	<!-- 产量统计 -->
+	<view wx:if="{{active == 1}}" class="base-infomations" style="min-height: calc(100vh - {{CustomBar + 60}}px);">
+
+		<titleIcon title="状态统计" />
+		<view class="echart-size-pie">
+			<ec-canvas id="mychart-dom-multi-pie" canvas-id="mychart-dom-multi-pie" ec="{{ ecStatus }}">
+			</ec-canvas>
+		</view>
+		<view class="status-text">
+			<view>开机时长:{{open_time}}</view>
+			<view>故障次数:{{fault_count}}次</view>
+		</view>
+		<titleIcon title="运行时长" />
+		<view class="echart-size">
+			<ec-canvas id="mychart-dom-multi-line" canvas-id="mychart-dom-multi-line" ec="{{ ecDuration }}">
+			</ec-canvas>
+		</view>
+		<titleIcon title="产量计数" />
+		<view class="echart-size">
+			<ec-canvas id="mychart-dom-multi-line" canvas-id="mychart-dom-multi-line"
+				ec="{{ ecMechineLine }}"></ec-canvas>
+
+		</view>
+		<titleIcon title="故障次数" />
+		<view class="echart-size-pie">
+			<ec-canvas id="mychart-dom-multi-bar" canvas-id="mychart-dom-multi-bar" ec="{{ ecAlert }}">
+			</ec-canvas>
+		</view>
+
+	</view>
+	<!-- 能耗统计 -->
+	<view wx:if="{{active == 2}}" class="base-infomations" style="min-height: calc(100vh - {{CustomBar + 60}}px);">
+		<view class="echart-icon">
+			<view>
+				<view style="background-color:#1CE0EF;" class="echart-icon-size"></view>
+				当日产量
+			</view>
+			<view>
+				<view style="background-color:#FFA83E;" class="echart-icon-size"></view>
+				当班产量
+			</view>
+			<view>
+				<view style="background-color:#F03F58;" class="echart-icon-size"></view>
+				用电量
+			</view>
+			<view>
+				<view style="background-color:#2190FE;" class="echart-icon-size"></view>
+				用水量
+			</view>
+			<view>
+				<view style="background-color:#04CAA2;" class="echart-icon-size"></view>
+				天然气/蒸汽用量
+			</view>
+
+		</view>
+		<view class="echart-size">
+			<ec-canvas id="mychart-dom-bar-today" canvas-id="mychart-bar" ec="{{ ecToday }}">
+			</ec-canvas>
+		</view>
+
+		<view class="echart-size">
+			<ec-canvas id="mychart-dom-bar-class" canvas-id="mychart-bar1" ec="{{ ecClass }}">
+			</ec-canvas>
+		</view>
+
+		<view class="echart-icon" style="margin-top:60rpx">
+			<view>
+				<view style="background-color:#1CE0EF;" class="echart-icon-size"></view>
+				产量
+			</view>
+
+			<view>
+				<view style="background-color:#F03F58;" class="echart-icon-size"></view>
+				用电量
+			</view>
+			<view>
+				<view style="background-color:#2190FE;" class="echart-icon-size"></view>
+				用水量
+			</view>
+			<view>
+				<view style="background-color:#04CAA2;" class="echart-icon-size"></view>
+				天然气/蒸汽用量
+			</view>
+
+		</view>
+
+		<view class="echart-size" style="height:500rpx">
+			<ec-canvas id="mychart-dom-multi-line" canvas-id="mychart-dom-multi-line" ec="{{ ecEnergy }}">
+			</ec-canvas>
+		</view>
+		<view class="echart-icon">
+			<view>
+				<view style="border: 2px #F03F58 dotted;" class="echart-icon-size-s"></view>
+				用电量(每万米)
+			</view>
+			<view>
+				<view style="border:2px #2190FE dotted;" class="echart-icon-size-s"></view>
+				用水量(每万米)
+
+			</view>
+			<view>
+				<view style="border:2px #04CAA2 dotted;" class="echart-icon-size-s"></view>
+				天然气/蒸汽用量(每万米)
+			</view>
+		</view>
+		<view class="echart-size" style="height:500rpx">
+			<ec-canvas id="mychart-dom-multi-line" canvas-id="mychart-dom-multi-line" ec="{{ ecUnitEnergy }}">
+			</ec-canvas>
+		</view>
+		<view class="titles">当班单位能耗（每万米）</view>
+
+		<view class="three-icon">
+			<!-- 用电量 -->
+			<view class="three-icon-size">
+				<view class="three-icon-size-img ones center">
+					{{class_unit_electricity}}kwh
+				</view>
+
+				<view>用电量</view>
+			</view>
+			<!-- 用水量 -->
+			<view class="three-icon-size">
+				<view class="three-icon-size-img twos center">
+					{{class_unit_water}}m³
+				</view>
+				<view>用水量</view>
+			</view>
+			<!-- 天然气 -->
+			<view class="three-icon-size">
+				<view class="three-icon-size-img threes center">
+					{{class_unit_gas}}m³
+				</view>
+				<view>天然气</view>
+			</view>
+		</view>
+	</view>
+</view>

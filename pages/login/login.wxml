@@ -1,0 +1,35 @@
+<!--pages/login/login.wxml-->
+<view class="login">
+    <image class="down" src="../../images/login/BG.jpg"></image>
+    <view class="up">
+        <!-- 标题 -->
+       <view class="login-title">
+           <view>
+            佶龙设备云管家 
+           </view>
+       </view>
+       <!-- 账号密码输入 -->
+       <view class="login-content">
+        <view class="userName ">
+           <view >账号：</view> 
+           <input type="text" value="jilong" bindinput="setUserName" placeholder="请输入账号" maxlength="10" placeholder-class="placeholder"/>
+           <image src="../../images/login/userName.png" ></image>
+        </view>
+        <view class="line"></view>
+        <view class="password ">
+            <view >密码：</view>
+            <input password="true" value="123456" bindinput="setPassword" type="text"  maxlength="10"  placeholder="请输入密码" placeholder-class="placeholder"/>
+            <image src="../../images/login/password.png"></image>
+
+        </view>
+
+       </view>
+       <!-- 登录按钮 -->
+       <view class="login-button"> 
+        <button bindtap="login">登  录</button>
+       </view> 
+       <van-toast id="van-toast" />
+    </view>
+</view>
+ 
+

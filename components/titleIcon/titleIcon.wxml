@@ -1,0 +1,6 @@
+<!--components/titleIcon/titleIcon.wxml-->
+<view class="title-icon">
+    <view class="title-icon-icon"></view> 
+    <view class="title-icon-text">{{title}}</view>
+    
+</view>

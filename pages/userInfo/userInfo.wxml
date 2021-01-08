@@ -1,0 +1,68 @@
+<!--pages/userInfo.wxml-->
+<navigation>
+	<view slot="backText"></view>
+	<view slot="content">我的</view>
+</navigation>
+<view class="container" style="height: calc(100% - {{CustomBar + 50}}px);">
+	<view class="base-information">
+		<!-- 头像名称 -->
+		<view class="icon-name">
+			<view class="icon">
+				<open-data type="userAvatarUrl"></open-data>
+				<view class="circle-big"> </view>
+				<view class="circle-small"> </view>
+
+			</view>
+			<view class="name">
+				{{userName}}
+				<!-- <open-data type="userNickName"></open-data> -->
+			</view>
+		</view>
+		<!-- 其他列表项 -->
+		<view class="item-list">
+			<!-- 设备管理 -->
+			<view  class="item-list-item" bindtap="deviceManger">
+				<view class="text-image">
+					<image src="../../images/userInfo/device.png" mode="" alt="" />
+					设备管理
+				</view>
+
+				<view class="cuIcon-back" style="margin-right:20rpx"></view>
+			</view>
+			<view class="line"></view>
+			<!-- 用户管理 -->
+			<view wx:if="{{power == 03 || power == 00}}" class="item-list-item" bindtap="userManger">
+				<view class="text-image">
+					<image src="../../images/userInfo/userManger.png" mode="" alt="" />
+					用户管理
+				</view>
+
+				<view class="cuIcon-back" style="margin-right:20rpx"></view>
+			</view>
+			<view wx:if="{{power == 03 || power == 00 }}" class="line"></view>
+			<!-- 关于我们 -->
+			<view class="item-list-item" bindtap="userInformation">
+				<view class="text-image">
+					<image src="../../images/userInfo/user.png" mode="" alt="" />
+					用户信息
+				</view>
+
+				<view class="cuIcon-back" style="margin-right:20rpx"></view>
+			</view>
+
+			<view class="line"></view>
+			<!-- 消息管理 -->
+			<view class="item-list-item" bindtap="message">
+				<view class="text-image">
+					<image src="../../images/userInfo/message.png" mode="" alt="" />
+					消息通知
+				</view>
+
+				<view class="cuIcon-back" style="margin-right:20rpx"></view>
+			</view>
+
+		</view>
+
+	</view>
+
+</view>

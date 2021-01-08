@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "my-tabs":"../../components/tab/tab",
+    "titleIcon":"../../components/titleIcon/titleIcon",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+
+  }
+}

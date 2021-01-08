@@ -1,0 +1,27 @@
+/* components/tab.wxss */
+.my-tab{
+        display: flex;
+        height: 100rpx;
+        align-items: center;
+        font-size: 25rpx;
+}
+.my-tab-item{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 159rpx;
+        height: 55rpx;
+        margin:  0 10rpx;
+
+}
+.unactive{
+        color:rgb(168, 227, 255);
+        background: url("http://3617j8p134.zicp.vip/chose.png") no-repeat;
+        background-size: 100% 100%;
+}
+.active{
+        color:rgb(230, 248, 253);
+
+        background: url("http://3617j8p134.zicp.vip/chose_active.png") no-repeat;
+        background-size: 100% 100%; 
+}

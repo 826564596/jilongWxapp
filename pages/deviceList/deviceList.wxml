@@ -1,0 +1,34 @@
+<!--pages/deviceList/deviceList.wxml-->
+<navigation>
+        <view slot="backText"></view>
+        <view slot="content">设备列表</view>
+</navigation>
+<view class="container" style="min-height: calc(100% - {{CustomBar + 50}}px);">
+        <van-dropdown-menu>
+                <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" bind:change="changeItem" />
+        </van-dropdown-menu>
+        <scroll-view scroll-y="true" style="height:calc(100% - {{CustomBar + 50 + 50}}px);">
+                <view wx:for="{{deviceList}}" class="device-item" bindtap="detail" data-item="{{item}}">
+                        <view class="device-item-left center">
+                                <image src="{{url }}{{item.image_path}}" />
+                        </view>
+                        <view class="device-item-right">
+                                <!-- 运行、待机、故障、离线 -->
+                                <view class="device-item-right-title">
+                                        <image wx:if="{{item.state =='运行'}}" src="{{bgURL}}deviceList/运行图标.png"></image>
+                                        <image wx:if="{{item.state =='待机'}}" src="{{bgURL}}deviceList/待机图标.png"></image>
+                                        <image wx:if="{{item.state =='故障'}}" src="{{bgURL}}deviceList/故障图标.png"></image>
+                                        <image wx:if="{{item.state =='离线'}}" src="{{bgURL}}deviceList/警报图标.png ">
+                                        </image>
+                                        {{item.state}}
+                                </view>
+                                <view>设备名称:{{item.device_name}}</view>
+                                <view>设备编号:{{item.device_id}}</view>
+                                <view>设备型号:{{item.device_model}}</view>
+                                <view>今日加工数:{{item.today_output}}</view>
+
+                        </view>
+                </view>
+        </scroll-view>
+
+</view>

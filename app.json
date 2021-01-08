@@ -1,0 +1,67 @@
+{
+        "pages": [
+                "pages/login/login",
+                "pages/index/index",
+                "pages/deviceDevOps/deviceDevOps",
+                "pages/deviceMonitor/deviceMonitor",
+                "pages/userInfo/userInfo",
+                "pages/productionOverview/productionOverview",
+                "pages/deviceList/deviceList",
+                "pages/deviceManger/deviceManger",
+                "pages/userManger/userManger", 
+                "pages/message/message",
+                "pages/addDevice/addDevice",
+                "pages/userInformation/userInformation",
+                "pages/addUser/addUser" 
+        ],
+        "tabBar": {
+                "custom": true,
+                "color": "#7A7E83",
+                "selectedColor": "#3cc51f",
+                "borderStyle": "white",
+                "backgroundColor": "#3981b3",
+                "list": [
+                        {
+                                "pagePath": "pages/deviceList/deviceList",
+                                "iconPath": "/images/tabbar/deviceMonitor.png",
+                                "selectedIconPath": "images/tabbar/deviceMonitor_active.png",
+                                "text": "设备列表"
+                        },
+                        {
+                                "pagePath": "pages/deviceDevOps/deviceDevOps",
+                                "iconPath": "/images/tabbar/deviceDevOps.png",
+                                "selectedIconPath": "/images/tabbar/deviceDevOps_active.png",
+                                "text": "设备运维"
+                        },
+                        {
+                                "pagePath": "pages/index/index",
+                                "iconPath": "/images/tabbar/index.png",
+                                "selectedIconPath": "/images/tabbar/index_active.png",
+                                "text": "设备分布"
+                        },
+                        {
+                                "pagePath": "pages/productionOverview/productionOverview",
+                                "iconPath": "/images/tabbar/deviceDevOps.png",
+                                "selectedIconPath": "/images/tabbar/deviceDevOps_active.png",
+                                "text": "生产总览"
+                        },
+                        {
+                                "pagePath": "pages/userInfo/userInfo",
+                                "iconPath": "/images/tabbar/userManagement.png",
+                                "selectedIconPath": "/images/tabbar/userManagement_active.png",
+                                "text": "我的"
+                        }
+                ]
+        },
+        "usingComponents": {
+                "navigation": "/components/navigation/navigation"
+        },
+        "window": {
+                "backgroundTextStyle": "light",
+                "navigationBarBackgroundColor": "#fff",
+                "navigationBarTitleText": "Weixin",
+                "navigationBarTextStyle": "white",
+                "navigationStyle": "custom"
+        },
+        "sitemapLocation": "sitemap.json"
+}

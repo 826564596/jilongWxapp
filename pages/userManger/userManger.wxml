@@ -1,0 +1,50 @@
+<!--pages/userManger/userManger.wxml-->
+<!-- 用户管理 -->
+<navigation isBack="{{true}}">
+	<view slot="backText"></view>
+	<view slot="content">用户管理</view>
+</navigation>
+<view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
+	<view class="base-information">
+		<scroll-view class="srcoll-view" style="height: calc(100vh - {{CustomBar +50}}px);" scroll-y="true"
+			bindscrolltolower="lower">
+
+			<view class="list" wx:for="{{userList}}">
+				<view class="line"></view>
+
+				<view class="center">
+					<view class="text">
+						公司名称：{{item.F_BRNAME}}
+					</view>
+
+					<view style="float:right;display:flex;">
+						<view>
+							<image data-item="{{item}}" bindtap="editorUser"
+								style="height:30rpx;width:30rpx;margin-right:20rpx"
+								src="../../images/deivceManger/editor.png" alt="" />
+						</view>
+
+
+					</view>
+
+				</view>
+
+
+				<view class="line"></view>
+				<view class="text">手机号码：{{item.F_PHONE}}
+				</view>
+				<view class="line"></view>
+
+				<view class="text" style="display:flex;">使用状态：<van-switch style="margin-right:10rpx" size="20px" checked="{{item.F_STAT == 1 ? true : false }}" data-item="{{item}}" bind:change="onChange" active-color="#4EE8FA"
+  inactive-color="#f1f1f1"/>{{item.F_STAT == 1 ? '启用' : '禁用' }}
+				</view>
+				<view class="line"></view>
+				<!-- <button class="btn">重置密码</button> -->
+			</view>
+		</scroll-view>
+
+	</view>
+	<button class="button" bindtap="addUser">
+		<image style="height:30rpx;width:30rpx;" src="../../images/deivceManger/add2.png" alt="" />
+		添加用户</button>
+</view>

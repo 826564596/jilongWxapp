@@ -1,0 +1,33 @@
+/* pages/productionOverview/productionOverview.wxss */
+.base-information {
+        width: 95%;
+        margin: 0rpx auto;
+        padding-top: 10rpx;
+}
+
+.list {
+        border: 1rpx rgb(78, 232, 250) solid;
+        border-radius: 10rpx;
+        background-color: rgba(44, 115, 177, 0.5);
+        margin-bottom: 10rpx;
+        min-height: 200rpx;
+        color: #fff;
+        padding: 10rpx;
+
+}
+
+.list .text {
+        margin-left: 2.5%;
+        width: 100%;
+}
+
+.unit {
+        float: right;
+        margin-right: calc(5%);
+}
+
+.line {
+        border-top: 1px rgb(78, 232, 250) solid;
+        width: 95%;
+        margin: 10rpx 2.5%;
+}

@@ -1,0 +1,82 @@
+/* pages/login/login.wxss */
+.login {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.down {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.up {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    margin-left: -40%;
+
+}
+
+.login-title {
+    color: #fff;
+    font-size: 65rpx;
+    margin-top: 150rpx;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.login-content {
+    margin-top: 200rpx;
+    height: 200rpx;
+    color: rgb(3, 35, 57);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+
+}
+
+
+.login-content image {
+    height: 40rpx;
+    width: 40rpx;
+    margin-right:20rpx;
+}
+.line{
+    width: 95%;
+    border:1px rgb(3, 35, 57) solid;
+    margin: 0 auto;
+}
+.userName,
+.password {
+    font-size: 35rpx;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.userName view,
+.password view{
+    margin:0 10rpx;
+}
+
+
+ 
+.login-button {
+    margin-top: 200rpx;
+    height: 2rem;
+}
+.placeholder{
+    color: #fff;
+    font-size: 30rpx;
+}
+.login-button button{
+    background-image: linear-gradient(rgb(6, 170, 226),rgb(4, 82, 149));
+    color:#fff;
+}

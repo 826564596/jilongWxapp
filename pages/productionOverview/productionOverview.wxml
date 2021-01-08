@@ -1,0 +1,85 @@
+<!--pages/productionOverview/productionOverview.wxml-->
+<navigation>
+	<view slot="backText"></view>
+	<view slot="content">生产总览</view>
+</navigation>
+<view class="container" style="min-height: calc(100% - {{CustomBar + 50}}px);">
+	<view class="base-information">
+		<!-- 下拉框 -->
+		<view class="high-input" style="">
+			<view class="input class" bindtap="componyFoucs">
+				<view wx:if="{{!company.content}}">请选择公司</view>
+				<view wx:if="{{company.content}}">{{company.content}}</view>
+			</view>
+			<view class="date-icon center" style="border-left:none">
+				<view class="top"></view>
+			</view>
+		</view>
+		<!-- 下拉框 -->
+		<view class="high-input">
+			<view style="margin-top:10rpx; margin-bottom:10rpx;width:100%" class="input class"
+				bindtap="deviceFoucs">
+				<view wx:if="{{!device.content}}">请选择设备</view>
+				<view wx:if="{{device.content}}">{{device.content}}</view>
+				<view style="float:left"></view>
+			</view>
+			<view class="date-icon center " style="border-left:none;margin-top:10rpx;">
+				<view class="top"></view>
+			</view>
+		</view>
+		<view class="list" wx:for="{{list}}">
+			<view class="text">设备名称：{{item.device_name}}<view class="unit"></view>
+			</view>
+			<view class="line"></view>
+			<view class="text">班次：{{item.work_class}}<view class="unit">班</view>
+			</view>
+			<view class="line"></view>
+			<view class="text">当前状态：{{item.state}} <view class="unit"></view>
+			</view>
+			<view class="line"></view>
+
+			<view class="text">生产速度：{{item.speed}} <view class="unit">米/分钟</view>
+			</view>
+			<view class="line"></view>
+
+
+
+			<view class="text">当月产量：{{item.month_output}} <view class="unit">米</view>
+			</view>
+			<view class="line"></view>
+
+			<view class="text">当月用电量：{{item.month_electricity}} <view class="unit">度</view>
+			</view>
+			<view class="line"></view>
+
+			<view class="text">当月用水量：{{item.month_water}} <view class="unit">m³</view>
+			</view>
+			<view class="line"></view>
+
+			<view class="text">当月用气量：{{item.month_gas}} <view class="unit">m³</view>
+			</view>
+			<view class="line"></view>
+
+
+			<view class="text">当月单位用电量：{{item.month_unit_electricity}} <view class="unit">度/万米</view>
+			</view>
+			<view class="line"></view>
+
+			<view class="text">当月单位用水量：{{item.month_unit_water}} <view class="unit">m³/万米</view>
+			</view>
+			<view class="line"></view>
+
+			<view class="text">当月单位用气量：{{item.month_unit_gas}} <view class="unit">m³/万米</view>
+			</view>
+
+
+
+
+		</view>
+	</view>
+
+	<my-picker show="{{company.show}}" title="选择公司" columns="{{ company.pickerList}}" bind:setItem="setCompony">
+	</my-picker>
+	<my-picker show="{{device.show}}" title="选择设备" columns="{{ device.pickerList}}" bind:setItem="setDevice">
+	</my-picker>
+</view>

@@ -1,0 +1,54 @@
+<!--pages/deviceManger/deviceManger.wxml-->
+<!-- 设备管理 -->
+<navigation isBack="{{true}}">
+        <view slot="backText"></view>
+        <view slot="content">设备管理</view>
+</navigation>
+<view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
+        <view class="base-information">
+                <!-- 下拉框 -->
+                <view class="high-input" style="">
+                        <view class="input class" bindtap="componyFoucs">
+                                <view wx:if="{{!company.content}}">请选择公司</view>
+                                <view wx:if="{{company.content}}">{{company.content}}</view>
+                        </view>
+                        <view class="date-icon center" style="border-left:none">
+                                <view class="top"></view>
+                        </view>
+                </view>
+                <!-- 设备列表 -->
+                <view style="margin-bottom:40px;">
+
+                        <view class="list" wx:for="{{device.list}}" wx:for-item="item" style="margin-top:10rpx;">
+                                <view class="text">设备名称：{{item.device_name}}
+
+                                        <view style="float:right;display:flex;">
+                                                <view>
+                                                        <image data-item="{{item}}" bindtap="editorDevice" style="height:30rpx;width:30rpx;margin-right:20rpx"
+                                                                src="../../images/deivceManger/editor.png" alt="" />
+                                                </view>
+                                                <view>
+                                                        <image data-item="{{item}}"  bindtap="deleteDevice" style="height:30rpx;width:30rpx;"
+                                                                src="../../images/deivceManger/delete.png" alt="" />
+
+                                                </view>
+
+                                        </view>
+                                </view>
+                                <view class="line"></view>
+                                <view class="text">设备编号：{{item.device_id}}</view>
+                                <view class="line"></view>
+                                <view class="text">设备型号：{{item.device_model}}</view>
+                                <view class="line"></view>
+                                <view class="text">设备状态：{{item.state}}</view>
+
+                        </view>
+                </view>
+                <!-- 添加设备按钮 -->
+        </view>
+        <button class="button" bindtap="addDevice">
+                <image style="height:30rpx;width:30rpx;" src="../../images/deivceManger/delete.png" alt="" />
+                添加设备</button>
+        <my-picker show="{{company.show}}" title="选择公司" columns="{{ company.pickerList}}" bind:setItem="setCompony">
+        </my-picker>
+</view>

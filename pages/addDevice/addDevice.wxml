@@ -1,0 +1,134 @@
+<!--pages/addDevice/addDevice.wxml-->
+<!-- 添加/修改设备 -->
+<navigation isBack="{{true}}">
+        <view slot="backText"></view>
+        <view slot="content">{{addType ? '添加设备' :'编辑设备'}}</view>
+</navigation>
+<view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
+
+
+        <view class="base-information">
+                <view class="list">
+                        <!-- 公司名称 -->
+                        <view wx:if="{{addType}}" class="flex" bindtap="componyFoucs" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                公司名称
+                                        </view>
+                                        <view class="inputs">{{device.company_name}}</view>
+                                </view>
+                                <view class="dropdown center">
+                                        <view class="cuIcon-backs"></view>
+                                </view>
+                        </view>
+                        <view wx:if="{{addType}}"  class="line"></view>
+                        <!-- 设备名称 -->
+                        <view  class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                设备名称
+                                        </view>
+                                        <input class="inputss" placeholder="请输入设备名称" bind:input="deviceName"
+                                                placeholder-style="color:#fff" type="text" />
+                                </view>
+
+                        </view>
+                        <view  class="line"></view>
+                        <!-- 设备编号 -->
+                        <view wx:if="{{addType}}"  class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                设备编号
+                                        </view>
+                                        <input class="inputss" placeholder="请输入设备编号" bindinput="deviceId"
+                                                placeholder-style="color:#fff" type="text" />
+                                </view>
+
+                        </view>
+                        <view wx:if="{{addType}}"  class="line"></view>
+                        <!-- 网关编号 -->
+                        <view wx:if="{{addType}}"  class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                网关编号
+                                        </view>
+                                        <input class="inputss" placeholder="请输入网关编号" bindinput="mac"
+                                                placeholder-style="color:#fff" type="text" />
+                                        <!-- <view class="inputs">{{device.company_name}}</view> -->
+                                </view>
+                                <!-- <view class=" center">
+                                                <image style="height:40rpx;width:40rpx;"
+                                                        src="../../images/deivceManger/2.png"></image>
+                                        </view> -->
+                        </view>
+                        <view wx:if="{{addType}}"  class="line"></view>
+                        <!-- 设备型号 -->
+                        <view wx:if="{{addType}}"  class="flex" bindtap="modelFoucs" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                设备型号
+                                        </view>
+                                        <view class="inputs">{{device.model_name}}</view>
+                                </view>
+                                <view class="dropdown center">
+                                        <view class="cuIcon-backs"></view>
+                                </view>
+                        </view>
+                        <view wx:if="{{addType}}"  class="line"></view>
+                        <!-- 型号名称 -->
+                        <view class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                型号名称
+                                        </view>
+                                        <input class="inputs" placeholder="请输入设备编号" placeholder-style="color:#fff"
+                                                type="text" />
+                                </view>
+
+                        </view>
+                        <view class="line"></view>
+
+                        <!-- 地址 -->
+                        <view  wx:if="{{addType}}"  class="flex" bindtap="addressFoucs" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                地址
+                                        </view>
+                                        <view class="inputs">{{address.content}}</view>
+                                </view>
+                                <view class="dropdown center">
+                                        <view class="cuIcon-backs"></view>
+                                </view>
+                        </view>
+                        <view  wx:if="{{addType}}"  class="line"></view>
+                        <!-- 设备图片 -->
+                        <view class="flex" style="width:100%;height:200rpx;line-height:200rpx">
+                                <view class="widths ">
+                                        <view class="test center">
+                                                设备图片
+                                        </view>
+                                        <view class="center" >
+                                                <view class="image center" style="margin-left:10px" bindtap="choseImage">
+                                                        <image style="height:100%;width:100%;" src="{{device.imageUrl}}" />
+                                                </view>
+                                             
+                                                <view class="image center" style="margin-left:10px" bindtap="choseImage">
+                                                        <image style="height:52rpx;width:52rpx;" src="../../images/deivceManger/add.png" alt=""/>
+                                                </view>
+                                        </view>
+
+
+                                </view>
+                        </view>
+                </view>
+        </view>
+        <button class="button" bindtap="confirm">
+                确定</button>
+
+        <my-picker show="{{company.show}}" title="选择公司" columns="{{ company.pickerList}}" bind:setItem="setCompony">
+        </my-picker>
+        <my-picker show="{{model.show}}" title="选择设备型号" columns="{{ model.pickerList}}" bind:setItem="setModel">
+        </my-picker>
+
+        <my-area show="{{address.show}}" bind:setItem="setAddress"></my-area>
+</view>

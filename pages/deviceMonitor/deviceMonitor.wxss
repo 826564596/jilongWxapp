@@ -1,0 +1,266 @@
+/* pages/deviceMonitor/deviceMonitor.wxss */
+@import "../deviceList/deviceList.wxss";
+
+.device-item {
+        min-height: 250rpx;
+}
+
+.device-item-left {
+        height: 250rpx;
+}
+
+.device-item-left image {
+        height: 200rpx;
+        width: 220rpx;
+
+}
+
+.class-icon {
+        height: 40rpx;
+
+}
+
+.base-infomation {
+        min-height: 40vh;
+        width: 95%;
+        margin: 10rpx auto;
+        padding: 10rpx 0;
+        border-radius: 5px;
+        /* background:url("http://3617j8p134.zicp.vip/deviceList/itemBG.png") no-repeat;
+        background-size: 100% 100%; */
+        background-color: #012751;
+        /* background-color: rgba(44, 115, 177, 0.38);      */
+}
+
+.base-infomations {
+        min-height: 250rpx;
+        width: 95%;
+        margin: 10rpx auto 0 auto;
+        padding: 10rpx 0;
+        border-radius: 5px;
+        background-color: #012751;
+
+}
+
+ec-canvas {
+        width: 100%;
+        height: 100%;
+}
+
+.base-infomation .title {
+        margin: 10rpx auto;
+        display: flex;
+        font-size: 30rpx;
+        width: 600rpx;
+        height: 50rpx;
+        border: 2px #fff solid;
+        border-radius: 20px;
+        box-sizing: border-box;
+
+
+}
+
+.status-text {
+        color: #43DFFF;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center; */
+        margin: 20rpx 20rpx;
+        margin-left: 100rpx;
+}
+
+.unactive {
+        color: #fff;
+        background-color: #002750;
+}
+
+.active {
+        color: #002750;
+        background-color: #fff;
+}
+
+
+.echart-icon {
+        display: flex;
+        color: #fff;
+        font-size: 25rpx;
+        margin: 20rpx 0;
+        justify-content: space-around;
+}
+
+
+
+.echart-icon-size {
+        height: 20rpx;
+        display: inline-block;
+        width: 20rpx;
+        border-radius: 4rpx;
+        background-color: #fff;
+        margin-right: 10rpx;
+}
+.echart-icon-size-s {
+        height: 20rpx;
+        display: inline-block;
+        width: 20rpx;
+        border-radius: 4rpx;
+        margin-right: 10rpx;
+}
+
+.echart-icon view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+}
+
+.echart-size {
+        width: 90%;
+        height: 350rpx;
+        margin: 0 auto;
+
+}
+
+.echart-size-pie {
+        width: 90%;
+        height: 300rpx;
+        margin: 0 auto;
+
+}
+
+.echart-title {
+        width: 200rpx;
+        margin: 0 auto;
+        color: #fff;
+        text-align: center;
+}
+
+.base-infomation .title view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        text-align: center;
+
+}
+
+.three-icon {
+        height: 250rpx;
+        display: flex;
+        justify-content: space-around;
+}
+
+.three-icon-size {
+        margin: 10rpx 0;
+        height: 100%;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        position: relative;
+}
+
+/* .height{
+        height: 90%;
+} */
+
+
+@keyframes rotation {
+        from {
+                transform: rotate(0deg);
+        }
+
+        to {
+                transform: rotate(360deg);
+        }
+}
+
+.ones,
+.twos,
+.threes {
+        /* position: relative; */
+        height: 150rpx;
+        width: 150rpx;
+        position: relative;
+        overflow: hidden;
+        z-index: 999;
+
+
+}
+
+.ones::before,
+.twos::before,
+.threes::before {
+        content: "";
+        position: absolute;
+        width: 150rpx;
+        height: 150rpx;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        /* background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle2.png") no-repeat;
+        background-size: 100% 100%; */
+        animation: rotation 2s linear infinite;
+}
+
+.three-icon-size-img image {
+        height: 150rpx;
+        width: 150rpx;
+}
+
+.content {
+        position: absolute;
+}
+.ones::before{
+        background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle2.png") no-repeat;
+        background-size: 100% 100%;  
+}
+.twos::before {
+        background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle1.png") no-repeat;
+        background-size: 100% 100%;
+}
+
+.threes::before {
+        background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle3.png") no-repeat;
+        background-size: 100% 100%;
+}
+
+.one {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+}
+
+.two {
+
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+}
+
+.van-tab {
+        /* width: 100% !important; */
+        color: #fff !important;
+        width: 50rpx !important;
+
+}
+
+.van-tabs--line .van-tabs__wrap {
+        /* height: 24rpx !; */
+        border-radius: 5px;
+        background-color: #000 !important;
+}
+
+.van-tabs__line {
+        background-color: #000 !important;
+
+}
+
+.van-tabs__scroll {
+        background-color: #000 !important;
+}
+.titles{
+        color:#fff;
+        width: 100%;
+        margin-top:20rpx;
+        text-align: center;
+}

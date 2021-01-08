@@ -1,0 +1,93 @@
+/* pages/deviceDevOps/deviceDevOps.wxss */
+.base-information {
+        width: 95%;
+        margin: 0px auto;
+}
+
+.border {
+        /* border:1px red solid; */
+}
+
+
+
+.placeholder-class {
+        /* margin-left: 10px; */
+        color: #fff;
+}
+
+.two-intput {
+        display: flex;
+}
+
+.List {
+        width: 100%;
+        height: 300rpx;
+        background: url("http://3617j8p134.zicp.vip/deviceDevOps/bg.png") no-repeat;
+        background-size: 100% 100%;
+        margin-bottom: 20rpx;
+        display: flex;
+        align-items: center;
+}
+
+.List-content {
+        padding: 30rpx;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: rgb(0, 74, 119);
+
+
+}
+
+.List-content .text {
+        height: 30%;
+        overflow: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+        /* text-overflow: ellipsis; */
+}
+
+.List-content .line {
+        border: 1px rgb(0, 74, 119) solid;
+}
+
+.IO{
+        background-color: #012751;
+        
+        margin:10rpx 0;
+        min-height: 200rpx;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 10rpx;
+        border-radius: 10px;
+        border:1px solid rgb(78, 232, 250);
+        /* border: solid; */
+        
+
+}
+.IO-item-paras{
+        /* border: 1px red solid; */
+       width: 43%;
+        height: auto;
+        color:#bbbbbb;
+        display: flex;
+        align-items: center;
+}
+ .block{
+        display: inline-block;
+        height: 30rpx;
+        width: 30rpx;
+        border-radius: 50%;
+
+}
+.icon-unactive{
+        background-image: linear-gradient(#fba951,#fa5d15);
+
+}
+.icon-active{
+        background-image: linear-gradient(#00f7f9,#00cbd2);
+        
+}

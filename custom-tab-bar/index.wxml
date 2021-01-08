@@ -1,0 +1,17 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+<!-- #93B3C9 -->
+<van-tabbar active-color="#D9E6ED"  inactive-color="#D9E6ED" active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item  class="{{active == index ? 'tabbar-item-active':'tabbar-item'}}" wx:for="{{ list }}" info="{{item.info}}" wx:key="index">
+    <image slot="icon" src="{{  item.iconPath }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    <image slot="icon-active" src="{{ item.activeIconPath }}" mode="aspectFit" style="width: 30px; height: 18px;" />
+    {{item.text}}
+  </van-tabbar-item>
+</van-tabbar> 
+
+<!-- <cover-view class="tab-bar">
+  <cover-view class="tab-bar-border"></cover-view>
+  <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item " data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <cover-image src="{{selected === index ? item.activeIconPath : item.iconPath}}"></cover-image>
+    <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+  </cover-view>
+</cover-view>  -->

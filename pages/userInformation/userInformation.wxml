@@ -1,0 +1,31 @@
+<!--pages/userInformation/userInformation.wxml-->
+<!-- 用户信息 -->
+<navigation isBack="{{true}}">
+	<view slot="backText"></view>
+	<view slot="content">用户信息</view>
+</navigation>
+<view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
+	<view class="base-information">
+		<view class="list">
+			<view class="text">公司名称:{{userInfo.F_BRNAME}}<view class="unit"></view>
+			</view>
+			<view class="line"></view>
+			<view class="text">手机:{{userInfo.F_PHONE}}	
+			</view>
+			<view class="line"></view>
+ 
+			<view class="text">使用状态:{{userInfo.F_ROLENAME}}	
+			</view> 
+			<view class="line"></view>
+
+			<view class="text">关于我们:{{ }}	
+			</view>
+			<view class="line"></view>
+			<view class="text">版本信息:V1.0.0	
+			</view>
+		</view> 
+	<button class="button" bindtap="signOut">退出登录</button>
+
+	</view>
+	
+</view>

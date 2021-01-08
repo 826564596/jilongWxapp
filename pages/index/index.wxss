@@ -1,0 +1,185 @@
+/**index.wxss**/
+
+.index-header {
+  width: 100%;
+  height: 25%;
+  /* background-color: #10639A; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.alerm {
+  height: calc(100% - 60rpx);
+  width: 100%;
+  padding-left: 20rpx;
+  overflow: hidden;
+  /* overflow-y: auto; */
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
+
+}
+.animation2{
+  position: relative;
+  animation: moveUp2 2s 1s infinite;
+
+}
+@keyframes moveUp2{
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: -35px;
+  }
+  /* 100% {
+    top: -70px;
+  } */
+  /* 75%{
+    top: -105px;
+  }
+  100%{
+    top: -140px;
+
+  } */
+}
+.animation {
+  position: relative;
+  animation: moveUp 10s 0.1s infinite;
+}
+
+@keyframes moveUp {
+  0% {
+    top: 0px;
+  }
+
+  10% {
+    top: -40rpx;
+  }
+
+  20% {
+    top: -80rpx;
+  }
+
+  30% {
+    top: -120rpx;
+  }
+
+  40% {
+    top: -160rpx;
+  }
+
+  50% {
+    top: -200rpx;
+  }
+
+  60% {
+    top: -240rpx;
+  }
+
+  70% {
+    top: -280rpx;
+  }
+
+  80% {
+    top: -320rpx;
+  }
+
+  90% {
+    top: -360rpx;
+  }
+
+  100% {
+    top: -400rpx;
+  }
+}
+
+.index-header-small {
+  height: 68rpx;
+  width: 633rpx;
+  margin-top: 10rpx;
+  line-height: 68rpx;
+  background: url("http://3617j8p134.zicp.vip/index/1.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	white-space: nowrap;
+  overflow-y: auto;
+}
+
+.index-header-small,
+.index-header-big {
+  font-size: 30rpx;
+  color: rgb(253, 220, 58);
+}
+
+.index-header-big {
+  margin-top: 10rpx;
+
+  height: 200rpx;
+  width: 633rpx;
+  background: url("http://3617j8p134.zicp.vip/index/2.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.big-title {
+  font-size: 23rpx;
+  color: rgb(51, 111, 168);
+  font-weight: bold;
+  height: 60rpx;
+}
+
+.index-content {
+  width: 100%;
+  height: 75%;
+  /* background-color: #005486; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-content-inner {
+  width: 95%;
+  height: 95%;
+  background-color: #023255;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.index-content-one {
+  margin: 5rpx 0;
+  height: 33%;
+  width: 587rpx;
+  display: flex;
+  background: url("http://3617j8p134.zicp.vip/index/3.png") no-repeat;
+  background-size: 100% 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.index-content-item {
+  width: 217rpx;
+}
+
+.index-content-item-title {
+  height: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 25rpx;
+  text-align: center;
+
+}
+
+.index-content-item-content {
+  height: 145rpx;
+  width: 217rpx;
+  background: url("http://3617j8p134.zicp.vip/index/5.png") no-repeat;
+  background-size: 100% 100%;
+  color: #fff;
+  font-size: 60rpx;
+}

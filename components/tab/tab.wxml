@@ -1,0 +1,6 @@
+<!--components/tab.wxml-->
+<view class="my-tab">
+	<view class="my-tab-item {{active == index ? 'active': 'unactive'}}" wx:for="{{itemList}}" bindtap="change" data-index="{{index}}">
+		{{item}}
+	</view>
+</view>

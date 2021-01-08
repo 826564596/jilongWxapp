@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "my-tabs":"../../components/tab/tab",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "my-picker":"/components/my-picker/my-picker",
+    "my-date-picker":"/components/my-date-picker/my-date-picker",
+
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index"
+  }
+}

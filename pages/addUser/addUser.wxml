@@ -1,0 +1,59 @@
+<!--pages/addUser/addUser.wxml-->
+
+<navigation isBack="{{true}}">
+        <view slot="backText"></view>
+        <view slot="content">{{addType ?'添加用户':'编辑用户'}}</view>
+</navigation>
+<view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
+        <view class="base-information">
+                <view class="list">
+                        <view wx:if="{{addType}}" class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                用户名称
+                                        </view>
+                                        <input class="inputss" placeholder="请输入用户名称" bind:input="iptUserName"
+                                              maxlength="32"   placeholder-style="color:#fff" type="text" />
+                                </view>
+
+                        </view>
+                        <view wx:if="{{addType}}" class="line"></view>
+
+                        <view class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                密码
+                                        </view>
+                                        <input class="inputss" placeholder="请输入密码" bind:input="iptPassword"
+                                             maxlength="16"   placeholder-style="color:#fff" type="password" />
+                                </view>
+
+                        </view>
+                        <view class="line"></view>
+
+                        <view class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                确认密码
+                                        </view>
+                                        <input class="inputss" placeholder="请再次输入密码" bind:input="iptConfirmPassword"
+                                               maxlength="16" placeholder-style="color:#fff" type="password" />
+                                </view>
+
+                        </view>
+                        <view class="line"></view>
+                        <view class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                手机号码
+                                        </view>
+                                        <input class="inputss" placeholder="请输入11位手机号码" bind:input="iptTelephone"
+                                               maxlength="11" placeholder-style="color:#fff" type="text" />
+                                </view>
+
+                        </view>
+                </view>
+        </view>
+        <button class="button" bindtap="confirm">
+                确定</button>
+</view>

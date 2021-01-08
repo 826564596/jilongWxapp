@@ -1,0 +1,19 @@
+function toString(value, num) {
+        return value.toString(num);
+}
+
+function secondToHMS(second) {
+        if (second == 0) return '0时0分0秒';
+        var h = Math.floor(second / 3600) < 10 ? "0" + Math.floor(second / 3600) : Math.floor(second / 3600);
+        var m = Math.floor((second / 60) % 60) < 10 ? "0" + Math.floor((second / 60) % 60) : Math.floor((second / 60) % 60);
+        var s = Math.floor(second % 60) < 10 ? "0" + Math.floor(second % 60) : Math.floor(second % 60);
+        return h + "时" + m + "分" + s + "秒";
+};
+
+// const toString = (value, num) => {
+//         return value.toString(num);
+// } 
+module.exports = {
+        secondToHMS: secondToHMS,
+        toString: toString
+}

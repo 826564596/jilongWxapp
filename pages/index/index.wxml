@@ -1,0 +1,102 @@
+<!--index.wxml-->
+<navigation isBack="{{false}}">
+	<view slot="backText"></view>
+	<view slot="content">设备总览</view>
+</navigation>
+
+<view class="container" style="height: calc(100% - {{CustomBar + 50}}px);">
+	<!-- 头部 -->
+	<view class="index-header">
+		<!-- 小框 -->
+		<view class="index-header-small">
+			<view style="margin-left:20rpx;"class="animation2"  wx:for="{{information}}">
+				{{item.company_name}} {{item.device_name}} {{item.alarm_time}}
+			</view>
+		 
+		</view>
+		<!-- 大框 -->
+		<view class="index-header-big">
+			<view class='center big-title'>实时故障数据</view>
+			<view class="alerm " >
+				<view  class="animation" wx:for="{{alermList}}">
+					{{item.device_name}}：{{item.fault_message}}
+				</view>
+			</view>
+		</view>
+
+	</view>
+	<!-- 内容 -->
+	<view class="index-content">
+		<view class="index-content-inner">
+			<view class="index-content-one">
+				<view class="index-content-item">
+					<!-- 标题 -->
+					<view class="index-content-item-title">
+						已接入设备
+					</view>
+					<!-- 内容 -->
+					<view class="center index-content-item-content">
+						{{state.total_devices}}
+					</view>
+				</view>
+				<view class="index-content-item">
+					<!-- 标题 -->
+					<view class="index-content-item-title">
+						在线设备
+					</view>
+					<!-- 内容 -->
+					<view class="center index-content-item-content">
+						{{state.online_devices}}
+					</view>
+				</view>
+			</view>
+			<view class="index-content-one">
+				<view class="index-content-item">
+					<!-- 标题 -->
+					<view class="index-content-item-title">
+						运行设备
+					</view>
+					<!-- 内容 -->
+					<view class="center index-content-item-content">
+						{{state.run_devices}}
+
+					</view>
+				</view>
+				<view class="index-content-item">
+					<!-- 标题 -->
+					<view class="index-content-item-title">
+						故障设备
+					</view>
+					<!-- 内容 -->
+					<view class="center index-content-item-content">
+						{{state.fault_devices}}
+
+					</view>
+				</view>
+			</view>
+			<view class="index-content-one">
+				<view class="index-content-item">
+					<!-- 标题 -->
+					<view class="index-content-item-title">
+						待机设备
+					</view>
+					<!-- 内容 -->
+					<view class="center index-content-item-content">
+						{{state.standby_devices}}
+
+					</view>
+				</view>
+				<!-- 报警设备 -->
+				<!-- <view class="index-content-item">
+					<view class="index-content-item-title">
+						报警设备
+					</view>
+					<view class="center index-content-item-content">
+						{{state.alarm_devices}}
+					</view>
+				</view> -->
+			</view>
+		</view>
+	</view>
+
+</view>

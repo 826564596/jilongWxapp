@@ -1,0 +1,28 @@
+<!--pages/message/message.wxml-->
+<!-- 消息通知 -->
+<navigation isBack="{{true}}">
+	<view slot="backText"></view>
+	<view slot="content">消息通知</view>
+</navigation>
+<view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
+	<view class="base-information">
+		<scroll-view class="srcoll-view" style="height: calc(100vh - {{CustomBar +10}}px);" scroll-y="true"  bindscrolltolower="lower" >
+			<view class="list" wx:for="{{messageList}}">
+				<view>
+					<image style="height:34rpx;width:60rpx;" src="../../images/message/NEW.png"></image>
+				</view>
+				<view class="text">设备名称：{{item.device_name}}</view>
+				<view class="line"></view>
+				<view class="text">消息类型：{{item.msg_type}}</view>
+				<view class="line"></view>
+				<view class="text">消息内容：{{item.msg_content}}</view>
+				<view class="line"></view>
+				<view class="text">接收时间：{{item.msg_time}}</view>
+				<view class="line"></view>
+				<view class="text">已读状态：{{item.msg_state}}</view>
+
+			</view>
+		</scroll-view>
+
+	</view>
+</view>

@@ -1,0 +1,41 @@
+/* pages/deviceList/deviceList.wxss */
+.device-item{
+        min-height: 250rpx;
+        width: 95%;
+        margin: 10rpx auto;
+        border-radius: 5px;
+        background:url("http://3617j8p134.zicp.vip/deviceList/itemBG.png") no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        /* background-color: rgba(44, 115, 177, 0.38); */
+}
+.device-item-left{
+        width: 40%;
+}
+.device-item-left image{
+        height: 80%;
+        width: 80%;
+        border-radius: 5px;
+}
+.device-item-right{
+        width: 60%;
+        color:#fff;
+        font-size: 30rpx;
+}
+.device-item-right view{
+        white-space:nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+}
+
+.device-item-right-title{
+        margin-top:20rpx;
+        height: 50rpx;
+        display: flex;
+        align-items: center;
+}
+.device-item-right image{
+        height: 40rpx;
+        width: 40rpx;
+        margin-right:10rpx;
+}
