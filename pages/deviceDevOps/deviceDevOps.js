@@ -68,6 +68,9 @@ Page({
     //输出
     output: {},
 
+    pageIndex: 0,
+    pageSize: 10,
+
   },
   setActive(value) {
     this.setData({
@@ -157,21 +160,19 @@ Page({
     let index = e.detail;
     if (this.data.device.list.length > 0) {
       let value = this.data.device.pickerList[0].values[index];
-      let id = this.data.device.list[index].device_id ;
+      let id = this.data.device.list[index].device_id;
       this.setData({
         [`device.content`]: value,
         [`device.deviceId`]: id
       })
       this.searchFault();
       this.searchIO();
-    }
-
-    else{
+    } else {
       this.setData({
         [`device.content`]: "",
         [`device.deviceId`]: ""
       })
-      this.searchFault();
+      this.searchFault(this.data.pageIndex,this.data.pageSize);
       this.searchIO();
     }
 
@@ -198,14 +199,14 @@ Page({
     })
   },
   /**搜素设备故障 */
-  searchFault() {
+  searchFault(index, size) {
     postHistoryFaultMessage({
       "company_id": this.data.company.componyId,
       "device_id": this.data.device.deviceId,
       "query_date": this.data.date.content,
       "page": {
-        "offset": 0,
-        "limit": 10
+        "offset": index,
+        "limit": size
       }
     }).then(res => {
       this.setData({
@@ -232,5 +233,13 @@ Page({
       })
 
     })
-  }
+  },
+  /**监听滚动到最后 */
+  lower(e) {
+    let pageSize = this.data.pageSize + 10;
+    this.searchFault(this.data.pageIndex, pageSize);
+    this.setData({
+      pageSize: pageSize
+    })
+  },
 })

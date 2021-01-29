@@ -14,14 +14,14 @@
 			</view>
 			<view class="line"></view>
  
-			<view class="text">使用状态:{{userInfo.F_ROLENAME}}	
+			<view class="text">角色状态:{{userInfo.F_ROLENAME}}	
 			</view> 
 			<view class="line"></view>
 
 			<view class="text">关于我们:{{ }}	
 			</view>
 			<view class="line"></view>
-			<view class="text">版本信息:V1.0.0	
+			<view class="text">版本信息:V1.0.1	
 			</view>
 		</view> 
 	<button class="button" bindtap="signOut">退出登录</button>

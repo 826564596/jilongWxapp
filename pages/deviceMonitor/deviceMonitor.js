@@ -1057,16 +1057,27 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        getCompanyDeviceInfo(options.deviceId).then(res => {
+
+        console.log(options);
+        getCompanyDeviceInfo(options.device_id).then(res => {
             console.log(res);
-            this.setData({
-                deviceInfo: res.data[0],
-                image_path: options.imagePath
-            })
+            if(res.data.length == 0){
+                this.setData({
+                    deviceInfo: options,
+                    image_path: options.image_path
+                })
+            }
+            else{
+                this.setData({
+                    deviceInfo: res.data[0],
+                    image_path: options.image_path
+                })
+            }
+    
         });
-        this.getTodayAndClass(options.deviceId);
-        this.getOutput(options.deviceId);
-        this.getEnergy(options.deviceId);
+        this.getTodayAndClass(options.device_id);
+        this.getOutput(options.device_id);
+        this.getEnergy(options.device_id);
     },
     /**获取当日当班信息 */
     getTodayAndClass(deviceId) {

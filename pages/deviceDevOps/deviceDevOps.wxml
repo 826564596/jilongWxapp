@@ -5,10 +5,11 @@
 	<view slot="backText"></view>
 	<view slot="content">设备运维</view>
 </navigation>
-<view class="container" style="min-height: calc(100% - {{CustomBar + 50}}px);padding-bottom:50px">
+<view class="container" style="min-height: calc(100% - {{CustomBar + 50}}px);">
 	<my-tabs bind:active="setActive" itemList="{{itemList}}" active="{{active}}" />
 	<!-- 设备故障 -->
 	<view wx:if="{{active == 0}}">
+
 		<view class="base-information">
 			<view class="high-input">
 				<view class="input class" bindtap="componyFoucs">
@@ -44,22 +45,24 @@
 						mode="aspectFit"></image>
 				</view>
 			</view>
-			<view class="List" wx:for="{{faultList}}">
-				<view class="List-content">
-					<view class="text">设备名称：{{item.device_name}}</view>
-					<view class="line"></view>
-					<view class="text">设备编号：{{item.device_id}}</view>
-					<view class="line"></view>
-					<view class="text">设备型号：{{item.device_model}}</view>
-					<view class="line"></view>
-					<view class="text">故障信息：{{item.fault_message}}</view>
-					<view class="line"></view>
-					<view class="text">故障时间：{{item.fault_time}}</view>
+			<scroll-view class="srcoll-view" style=" height: calc(100vh - {{CustomBar +50 }}px - {{100 + 70 + 90}}rpx );"
+				scroll-y="true" bindscrolltolower="lower">
+				<view class="List" wx:for="{{faultList}}">
+					<view class="List-content">
+						<view class="text">设备名称：{{item.device_name}}</view>
+						<view class="line"></view>
+						<view class="text">设备编号：{{item.device_id}}</view>
+						<view class="line"></view>
+						<view class="text">设备型号：{{item.device_model}}</view>
+						<view class="line"></view>
+						<view class="text">故障信息：{{item.fault_message}}</view>
+						<view class="line"></view>
+						<view class="text">故障时间：{{item.fault_time}}</view>
+					</view>
 				</view>
+			</scroll-view>
 
 
-
-			</view>
 
 		</view>
 	</view>
@@ -92,7 +95,8 @@
 			<view wx:for="{{paras}}" class="IO" wx:for-item="a">
 				<view class="IO-item-paras" wx:for="{{a.values}}" wx:for-index="idx">
 					<view class="item">
-						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}"></view>
+						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}">
+						</view>
 						{{a.name}}.{{filters.toString(idx,16)}}
 					</view>
 				</view>
@@ -101,7 +105,8 @@
 			<view wx:for="{{output}}" class="IO" wx:for-item="a">
 				<view class="IO-item-paras" style="color:#fff" wx:for="{{a.values}}" wx:for-index="idx">
 					<view class="item">
-						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}"></view>
+						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}">
+						</view>
 						{{a.name}}.{{filters.toString(idx,16)}}
 					</view>
 				</view>

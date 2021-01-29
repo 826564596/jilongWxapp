@@ -34,7 +34,9 @@ Page({
             list: [], //返回内容
         },
         list: [], //渲染参数
-        allList:[],//存放所有数据
+        allList: [], //存放所有数据
+        pageIndex:0,
+        pageSize:10,
     },
     setActive(value) {
         this.setData({
@@ -119,11 +121,11 @@ Page({
             [`device.content`]: value,
             [`device.deviceId`]: id
         })
-        let arr = this.data.allList.filter(item=>{
+        let arr = this.data.allList.filter(item => {
             return item.device_id == id;
         })
         this.setData({
-            list : arr
+            list: arr
         })
     },
     /**搜索生产报告 */
@@ -131,9 +133,17 @@ Page({
         getCompanyProductionReport(this.data.company.componyId).then(res => {
             console.log(res.data);
             this.setData({
-                allList:res.data,
+                allList: res.data,
                 list: res.data
             })
         })
-    }
+    },
+    /**监听滚动到最后 */
+    lower(e) {
+        let pageSize = this.data.pageSize + 10;
+        this.searchFault(this.data.pageIndex, pageSize);
+        this.setData({
+            pageSize: pageSize
+        })
+    },
 })

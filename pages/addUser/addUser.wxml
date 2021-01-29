@@ -48,7 +48,7 @@
                                                 手机号码
                                         </view>
                                         <input class="inputss" placeholder="请输入11位手机号码" bind:input="iptTelephone"
-                                               maxlength="11" placeholder-style="color:#fff" type="text" />
+                                               maxlength="11" placeholder-style="color:#fff" type="number" />
                                 </view>
 
                         </view>

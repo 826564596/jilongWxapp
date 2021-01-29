@@ -3,10 +3,9 @@ const app = getApp();
 import {
         branchRegiter,
         branchList,
-        managerRegiter
+        managerRegiter,
 } from "../../utils/api";
-
-
+import * as regexp from '../../utils/RegExp';
 import {
         hex_md5
 } from "../../utils/md5";
@@ -44,7 +43,7 @@ Page({
                                 password: "",
                                 confirmPassword: "",
                                 telephone: "",
-                                id:options.F_ID,
+                                id: options.F_ID,
                         }
                         this.setData({
                                 addType: false,
@@ -65,7 +64,6 @@ Page({
                 }
         },
         iptUserName(e) {
-                console.log(e);
                 this.setData({
                         [`userInfo.userName`]: e.detail.value
                 })
@@ -89,6 +87,38 @@ Page({
         },
         /**确认 */
         confirm() {
+                if (this.data.addType && !this.data.userInfo.userName.trim()) {
+                        wx.showToast({
+                                title: '用户名称为空',
+                                icon: "error",
+                                duration: 1000,
+                        })
+                        return;
+                }
+                if (!this.data.userInfo.password.trim()) {
+                        wx.showToast({
+                                title: '密码为空',
+                                icon: "error",
+                                duration: 1000,
+                        })
+                        return;
+                }
+                if (!this.data.userInfo.telephone.trim()) {
+                        wx.showToast({
+                                title: '手机号码为空',
+                                icon: "error",
+                                duration: 1000,
+                        })
+                        return;
+                }
+                if (!regexp.testPhone.test(this.data.userInfo.telephone)) {
+                        wx.showToast({
+                                title: '手机号格式错误',
+                                icon: "error",
+                                duration: 1000,
+                        })
+                        return;
+                }
                 if (this.data.userInfo.password != this.data.userInfo.confirmPassword) {
                         wx.showToast({
                                 title: '密码输入不一致',
@@ -114,7 +144,7 @@ Page({
                                         let data = JSON.parse(res.data);
                                         for (let i of data[0].children) {
                                                 if (i.BRNAME == this.data.userInfo.userName) {
-                                                
+
                                                         let obj3 = {
                                                                 username: i.BRNAME,
                                                                 passwd: hex_md5(this.data.userInfo.password),
@@ -125,7 +155,7 @@ Page({
                                                                 phone: this.data.userInfo.telephone,
                                                                 role: "04",
                                                         }
-                                                        if(this.data.addType == false){
+                                                        if (this.data.addType == false) {
                                                                 obj3.id = this.data.userInfo.id;
                                                         }
                                                         managerRegiter(obj3).then(res => {
@@ -135,9 +165,12 @@ Page({
                                                                                 icon: "success",
                                                                                 duration: 1000
                                                                         })
-                                                                        wx.navigateBack({
-                                                                          delta: 1,
-                                                                        })
+                                                                        setTimeout(() => {
+                                                                                wx.navigateBack({
+                                                                                        delta: 1,
+                                                                                })
+                                                                        }, 1000)
+
                                                                 } else {
                                                                         wx.showToast({
                                                                                 title: res.data.msg,

@@ -7,7 +7,7 @@
         <van-dropdown-menu>
                 <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" bind:change="changeItem" />
         </van-dropdown-menu>
-        <scroll-view scroll-y="true" style="height:calc(100% - {{CustomBar + 50 + 50}}px);">
+        <scroll-view scroll-y="true" style=" height:calc(100vh - {{CustomBar + 50 + 55}}px);">
                 <view wx:for="{{deviceList}}" class="device-item" bindtap="detail" data-item="{{item}}">
                         <view class="device-item-left center">
                                 <image src="{{url }}{{item.image_path}}" />
@@ -26,7 +26,6 @@
                                 <view>设备编号:{{item.device_id}}</view>
                                 <view>设备型号:{{item.device_model}}</view>
                                 <view>今日加工数:{{item.today_output}}</view>
-
                         </view>
                 </view>
         </scroll-view>

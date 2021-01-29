@@ -124,5 +124,5 @@ module.exports = {
   getDay: getDay,
   timestampToTime: timestampToTime,
   getDate: getDate,
-  tento2: tento2
+  tento2: tento2,
 }

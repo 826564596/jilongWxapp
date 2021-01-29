@@ -1,13 +1,12 @@
 import {
     objectToUrl
-} from "./util";
+} from "./util"; 
 
-const ApiUrl = "http://27.150.173.9:9698/api/v1";
-// const ApiUrl = "http://jlma.jilong.net:9698/api/v1";
+// const ApiUrl = "http://27.150.173.9:9698/api/v1";
+// const LoginUrl = "http://27.150.173.9:9002";
 
-const LoginUrl = "http://27.150.173.9:9002";
-// const LoginUrl = "http://jlma.jilong.net:9002";
-// const LoginUrl = "http://192.168.40.244:8899"
+const ApiUrl = "https://jlma.ltd:9698/api/v1";
+const LoginUrl = "https://jlma.ltd:9002";
  
 
 

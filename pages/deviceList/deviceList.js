@@ -6,7 +6,7 @@ import {
 
 } from "../../utils/api";
 
-import {objectToUrl} from "../../utils/util";
+import {objectToUrl,objectToUrlNoEncodeURI} from "../../utils/util";
 
 Page({
         data: {
@@ -59,12 +59,13 @@ Page({
         },
         detail(e){
                 let value = e.currentTarget.dataset.item;
-                let obj ={
-                        deviceId:value.device_id,
-                        imagePath:value.image_path
-                }
+                // let 
+                // let obj = {
+                //         deviceId:value.device_id,
+                //         imagePath:value.image_path
+                // }
                 wx.navigateTo({
-                  url: `/pages/deviceMonitor/deviceMonitor` + objectToUrl(obj),
+                  url: `/pages/deviceMonitor/deviceMonitor` + objectToUrlNoEncodeURI(value),
                 })
         }
 

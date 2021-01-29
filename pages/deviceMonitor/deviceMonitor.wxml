@@ -33,7 +33,7 @@
 				<view>网关编号:{{deviceInfo.mac}}</view>
 				<view>设备型号:{{deviceInfo.device_model}}</view>
 				<view>型号名称:{{deviceInfo.device_type}}</view>
-				<view>运行时间:{{filters.secondToHMS(deviceInfo.today_run_time)}}</view>
+				<view>运行时间:{{ filters.secondToHMS(deviceInfo.today_run_time)}}</view>
 				<view style="margin-bottom:20rpx;">停机时间:{{filters.secondToHMS(deviceInfo.today_standby_time + deviceInfo.today_fault_time)}}</view>
 
 

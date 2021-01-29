@@ -25,8 +25,13 @@ Page({
         /**
          * 生命周期函数--监听页面加载
          */
-        onLoad(options) {
+        // onLoad(options) {
+        //         this.getData(this.data.pageIndex, this.data.pageSize);
+
+        // },
+        onShow(){
                 this.getData(this.data.pageIndex, this.data.pageSize);
+
         },
         /**监听滚动到最后 */
         lower(e) {

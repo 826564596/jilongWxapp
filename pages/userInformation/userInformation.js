@@ -1,10 +1,10 @@
-// pages/userManger/userManger.js
+// pages/userManger/userInformation.js
 const app = getApp();
 import {
         getUserList
 } from "../../utils/api";
 Page({
-
+ 
         /**
          * 页面的初始数据
          */
@@ -26,6 +26,7 @@ Page({
                         pageindex: 0,
                         pagesize: 15,
                 }).then(res => {
+                        console.log(JSON.parse(res.data).Rows[0]);
                         this.setData({
                                 userInfo:JSON.parse(res.data).Rows[0],
                         })
