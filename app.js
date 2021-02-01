@@ -48,9 +48,9 @@ App({
       // "username": "jilong",
       // "brno": "10234",
       // "role": "03"
-    },
+    }, 
     imgURL: "http://27.150.173.9:9002",
     //  imgURL : "http://jlma.jilong.net:9002",
-    backgroundURL: "http://3617j8p134.zicp.vip/"
+    backgroundURL: "https://jlma.ltd:9001"
   } 
 })  
