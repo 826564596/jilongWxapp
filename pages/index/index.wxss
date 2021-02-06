@@ -100,7 +100,7 @@
   width: 633rpx;
   margin-top: 10rpx;
   line-height: 68rpx;
-  background: url("http://3617j8p134.zicp.vip/index/1.png") no-repeat;
+  background: url("https://jlma.ltd:9001/index/1.png") no-repeat;
   background-size: 100% 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -119,7 +119,7 @@
 
   height: 200rpx;
   width: 633rpx;
-  background: url("http://3617j8p134.zicp.vip/index/2.png") no-repeat;
+  background: url("https://jlma.ltd:9001/index/2.png") no-repeat;
   background-size: 100% 100%;
 }
 
@@ -154,7 +154,7 @@
   height: 33%;
   width: 587rpx;
   display: flex;
-  background: url("http://3617j8p134.zicp.vip/index/3.png") no-repeat;
+  background: url("https://jlma.ltd:9001/index/3.png") no-repeat;
   background-size: 100% 100%;
   justify-content: space-around;
   align-items: center;
@@ -178,7 +178,7 @@
 .index-content-item-content {
   height: 145rpx;
   width: 217rpx;
-  background: url("http://3617j8p134.zicp.vip/index/5.png") no-repeat;
+  background: url("https://jlma.ltd:9001/index/5.png") no-repeat;
   background-size: 100% 100%;
   color: #fff;
   font-size: 60rpx;

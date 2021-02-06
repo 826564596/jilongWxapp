@@ -1,13 +1,13 @@
 .tabbar-item {
         background-color: #3981b3;
-        /* background: url("http://3617j8p134.zicp.vip/tabbar/chose.png") no-repeat; */
+        /* background: url("https://jlma.ltd:9001/tabbar/chose.png") no-repeat; */
 } 
 
 .tabbar-item-active {
         background-color: #55add7;
  
 
-        /* background: url("http://3617j8p134.zicp.vip/tabbar/chose_active.png") no-repeat;
+        /* background: url("https://jlma.ltd:9001/tabbar/chose_active.png") no-repeat;
         background-size: 100% 100%; */
 }
   

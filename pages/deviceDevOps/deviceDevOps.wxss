@@ -22,7 +22,7 @@
 .List {
         width: 100%;
         height: 300rpx;
-        background: url("http://3617j8p134.zicp.vip/deviceDevOps/bg.png") no-repeat;
+        background: url("https://jlma.ltd:9001/deviceDevOps/bg.png") no-repeat;
         background-size: 100% 100%;
         margin-bottom: 20rpx;
         display: flex;

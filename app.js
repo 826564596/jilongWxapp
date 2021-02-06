@@ -45,8 +45,8 @@ App({
     userInfo: {
       // "success": true,
       // "msg": "验证成功",
-      // "username": "jilong",
-      // "brno": "10234",
+      // "username": "jilong", 
+      // "brno": "10234", 
       // "role": "03"
     }, 
     imgURL: "http://27.150.173.9:9002",

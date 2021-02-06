@@ -27,5 +27,5 @@
 	<button class="button" bindtap="signOut">退出登录</button>
 
 	</view>
-	
+	 
 </view>

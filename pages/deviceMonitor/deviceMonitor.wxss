@@ -26,7 +26,7 @@
         margin: 10rpx auto;
         padding: 10rpx 0;
         border-radius: 5px;
-        /* background:url("http://3617j8p134.zicp.vip/deviceList/itemBG.png") no-repeat;
+        /* background:url("https://jlma.ltd:9001/deviceList/itemBG.png") no-repeat;
         background-size: 100% 100%; */
         background-color: #012751;
         /* background-color: rgba(44, 115, 177, 0.38);      */
@@ -199,7 +199,7 @@ ec-canvas {
         top: 0;
         left: 0;
         z-index: -1;
-        /* background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle2.png") no-repeat;
+        /* background: url("https://jlma.ltd:9001/deviceMonitor/circle2.png") no-repeat;
         background-size: 100% 100%; */
         animation: rotation 2s linear infinite;
 }
@@ -213,16 +213,16 @@ ec-canvas {
         position: absolute;
 }
 .ones::before{
-        background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle2.png") no-repeat;
+        background: url("https://jlma.ltd:9001/deviceMonitor/circle2.png") no-repeat;
         background-size: 100% 100%;  
 }
 .twos::before {
-        background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle1.png") no-repeat;
+        background: url("https://jlma.ltd:9001/deviceMonitor/circle1.png") no-repeat;
         background-size: 100% 100%;
 }
 
 .threes::before {
-        background: url("http://3617j8p134.zicp.vip/deviceMonitor/circle3.png") no-repeat;
+        background: url("https://jlma.ltd:9001/deviceMonitor/circle3.png") no-repeat;
         background-size: 100% 100%;
 }
 

@@ -4,7 +4,7 @@
         width: 95%;
         margin: 10rpx auto;
         border-radius: 5px;
-        background:url("http://3617j8p134.zicp.vip/deviceList/itemBG.png") no-repeat;
+        background:url("https://jlma.ltd:9001/deviceList/itemBG.png") no-repeat;
         background-size: 100% 100%;
         display: flex;
         /* background-color: rgba(44, 115, 177, 0.38); */
