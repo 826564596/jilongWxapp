@@ -35,3 +35,7 @@
         white-space: nowrap;
 }
 
+.unReadBtn{
+        background-color: #0CACF6;
+        color: #fff;
+}

@@ -6,13 +6,14 @@
                 "pages/deviceMonitor/deviceMonitor",
                 "pages/userInfo/userInfo",
                 "pages/productionOverview/productionOverview",
-                "pages/deviceList/deviceList",
+                "pages/deviceList/deviceList", 
                 "pages/deviceManger/deviceManger",
-                "pages/userManger/userManger", 
+                "pages/userManger/userManger",
                 "pages/message/message",
                 "pages/addDevice/addDevice",
                 "pages/userInformation/userInformation",
-                "pages/addUser/addUser" 
+                "pages/addUser/addUser",
+                "pages/operationPasswordManger/operationPasswordManger"
         ],
         "tabBar": {
                 "custom": true,

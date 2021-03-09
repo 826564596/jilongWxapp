@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "van-switch": "@vant/weapp/switch/index"
+    "van-switch": "@vant/weapp/switch/index",
+    "my-alert":"/components/my-alert/my-alert"
+
   }
 }

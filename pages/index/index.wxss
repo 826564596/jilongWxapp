@@ -23,7 +23,7 @@
 }
 .animation2{
   position: relative;
-  animation: moveUp2 2s 1s infinite;
+  animation: moveUp2 2s 1s infinite linear;
 
 }
 @keyframes moveUp2{
@@ -43,10 +43,62 @@
     top: -140px;
 
   } */
-}
-.animation {
+} 
+.animation { 
   position: relative;
-  animation: moveUp 10s 0.1s infinite;
+  animation: moveUp3 10s infinite;
+}
+ 
+
+.marquee_top {
+  transition: all 0.5s;
+  margin-top: -60rpx;
+}
+
+@keyframes moveUp3 {
+  0% {
+    top: 0px;
+  }
+
+  10% {
+    top: -40rpx;
+  }
+
+  20% {
+    top: -80rpx;
+  }
+
+  30% {
+    top: -120rpx;
+  }
+
+  40% {
+    top: -160rpx;
+  }
+
+  50% {
+    top: -200rpx;
+  }
+
+  60% {
+    top: -240rpx;
+  }
+
+  70% {
+    top: -280rpx;
+  }
+
+  80% {
+    top: -320rpx;
+  }
+
+  90% {
+    top: -360rpx;
+  }
+
+  100% {
+    top: -400rpx;
+  }
 }
 
 @keyframes moveUp {
@@ -182,4 +234,4 @@
   background-size: 100% 100%;
   color: #fff;
   font-size: 60rpx;
-}
+} 

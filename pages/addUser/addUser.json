@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "my-alert":"/components/my-alert/my-alert"
+
+  }
 }

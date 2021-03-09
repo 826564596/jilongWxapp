@@ -91,7 +91,7 @@ view {
 }
 
 .van-picker__mask {
-  background-image: url("./") !important;
+  background-image: url(".") !important;
   color: #fff !important;
 
 }

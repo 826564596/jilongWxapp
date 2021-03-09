@@ -44,6 +44,9 @@ Component({
    */
   methods: {
     BackPage() {
+      // wx.showToast({
+      //   title: '1111',
+      // })
       wx.navigateBack({
         delta: 1
       });

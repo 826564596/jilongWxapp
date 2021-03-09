@@ -48,3 +48,5 @@
 		<image style="height:30rpx;width:30rpx;" src="../../images/deivceManger/add2.png" alt="" />
 		添加用户</button>
 </view>
+
+<my-alert isShowConfirm="{{isShowConfirm}}"  bind:confirm="confirms"></my-alert>

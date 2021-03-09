@@ -3,6 +3,7 @@
         width: 95%;
         margin: 0rpx auto;
         padding-top: 10rpx;
+        border:1px solid rgba(1, 1, 1, 0);
 }
 .list {
         /* border: 1rpx rgb(78, 232, 250) solid; */
@@ -28,6 +29,14 @@
         overflow: hidden;
         overflow-x: auto;
         white-space: nowrap;
+      
+}
+.texts{
+       width: 85%;
+       overflow: hidden;
+       overflow-x: auto;
+       white-space: nowrap;
+       display: inline-block;
 }
 .button{
         position: fixed;

@@ -1,7 +1,8 @@
 // pages/message/message.js
 const app = getApp();
 import {
-        postMessageList
+        postMessageList,
+        postSetMessageRead
 } from "../../utils/api"
 Page({
 
@@ -52,5 +53,13 @@ Page({
                         limitNumer: limitNumer
                 })
         },
-
+        /**设为已读 */
+        setRead(e) {
+                console.log(this.data.messageList);
+                console.log(e);
+                let msgId = e.target.dataset.msg_id;
+                postSetMessageRead([msgId]).then(res => {
+                        this.getData(this.data.pageIndex, this.data.limitNumer);
+                })
+        }
 })

@@ -4,11 +4,11 @@
 <navigation isBack="{{true}}">
 	<view slot="backText"></view>
 	<view slot="content">设备监控</view>
-</navigation>
+</navigation> 
 <view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
 
 	<my-tabs bind:active="setActive" itemList="{{itemList}}" active="{{active}}" />
-	<!-- 设备信息 -->
+	<!-- 设备信息 --> 
 	<view wx:if="{{active == 0}}" style="min-height: calc(100vh - {{CustomBar + 60}}px);">
 		<!-- <titleIcon title="设备详情" /> -->
 		<view class="device-item">
@@ -32,7 +32,7 @@
 				<view>设备编号:{{deviceInfo.device_id}}</view>
 				<view>网关编号:{{deviceInfo.mac}}</view>
 				<view>设备型号:{{deviceInfo.device_model}}</view>
-				<view>型号名称:{{deviceInfo.device_type}}</view>
+				<view>模型名称:{{deviceInfo.device_type}}</view>
 				<view>运行时间:{{ filters.secondToHMS(deviceInfo.today_run_time)}}</view>
 				<view style="margin-bottom:20rpx;">停机时间:{{filters.secondToHMS(deviceInfo.today_standby_time + deviceInfo.today_fault_time)}}</view>
 
@@ -46,9 +46,10 @@
 				<view class="one {{!active2  ? 'active':'unactive' }}">当日能耗</view>
 				<view class="two {{active2 ? 'active':'unactive' }}">当班能耗</view>
 			</view>
-			<!-- wx:if="{{!active2}}" -->
+			<view wx:if="{{!active2}}" >
+			
 			<!-- style="{{ !active2 ?'display:block' :'display:none' }}" -->
-			<view wx:if="{{!active2}}">
+			<!-- <view wx:if="{{!active2}}" > -->
 				<view class="echart-icon">
 					<view>
 						<view style="background-color:#1CE0EF;" class="echart-icon-size"></view>
@@ -94,7 +95,7 @@
 						<view class="three-icon-size-img threes center">
 							{{today_unit_gas}}m³
 						</view>
-						<view>天然气</view>
+						<view>天然气/蒸汽用量</view>
 					</view>
 				</view>
 			</view>
@@ -148,7 +149,7 @@
 						<view class="three-icon-size-img threes center">
 							{{class_unit_gas}}m³
 						</view>
-						<view>天然气</view>
+						<view>天然气/蒸汽用量</view>
 					</view>
 				</view>
 			</view>
@@ -288,7 +289,7 @@
 				<view class="three-icon-size-img threes center">
 					{{class_unit_gas}}m³
 				</view>
-				<view>天然气</view>
+				<view>天然气/蒸汽用量</view>
 			</view>
 		</view>
 	</view>

@@ -90,3 +90,12 @@
 	transform: matrix(-0.71, 0.71, 0.71, 0.71, 0, 0);
 	/* position: absolute; */
     }
+.unReadMessage{
+        background-color: red;
+        border-radius: 5px;
+        height: 40rpx;
+        line-height: 40rpx;
+        font-size:12px;
+        margin-left:10px;
+        padding:0 10rpx;
+}

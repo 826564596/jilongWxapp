@@ -9,18 +9,32 @@
 	<view class="index-header">
 		<!-- 小框 -->
 		<view class="index-header-small">
-			<view style="margin-left:20rpx;"class="animation2"  wx:for="{{information}}">
+			<!-- <view style="margin-left:20rpx;" class="animation2" wx:for="{{information}}">
 				{{item.company_name}} {{item.device_name}} {{item.alarm_time}}
+			</view> -->
+			<view class="{{animate?'marquee_top':''}}">
+				<view wx:for="{{information}}" wx:key="index" class="swiper_item">
+					{{item.company_name}} {{item.device_name}} {{item.alarm_time}}
+				</view>
 			</view>
-		 
 		</view>
+
+
+
+
 		<!-- 大框 -->
 		<view class="index-header-big">
 			<view class='center big-title'>实时故障数据</view>
-			<view class="alerm " >
-				<view  class="animation" wx:for="{{alermList}}">
+			<view class="alerm ">
+				<!-- <view class="animation" wx:for="{{alermList}}">
+					{{item.device_name}}：{{item.fault_message}}
+				</view> -->
+
+				<view class="{{animateAlert?'marquee_top':''}}">
+				<view wx:for="{{alermList}}" wx:key="index" class="swiper_item">
 					{{item.device_name}}：{{item.fault_message}}
 				</view>
+			</view>
 			</view>
 		</view>
 

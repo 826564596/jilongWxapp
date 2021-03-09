@@ -24,7 +24,7 @@ var chart5 = null;
 var chart6 = null;
 var chart7 = null;
 var chart8 = null;
-var chart9 = null;
+// var chart9 = null;
 
 
 
@@ -124,7 +124,7 @@ let optionToday = {
                 }
             }
         },
-        data: [1, 1, 1, 1]
+        data: [0, 0, 0, 0]
     }],
 }
 //当班
@@ -224,10 +224,10 @@ let optionClass = {
                 }
             }
         },
-        data: [1, 1, 1, 1]
+        data: [0, 0, 0, 0]
     }],
 }
-//状态统计
+//状态统计 
 let optionStatus = {
     tooltip: {
         trigger: 'item',
@@ -341,13 +341,13 @@ let optionStatus = {
 let optionDuration = {
     tooltip: {
         trigger: 'axis',
-        formatter: function (param) {
-            console.log(param)
-            let value = that.TimeConversionS(param[0].value)
-            let value2 = that.TimeConversionS(param[1].value)
-            return param[0].name + '<br/><div style="float:left;margin:5px 5px 0 0;border-radius:10px;width:10px;height:10px;background-color:' + param[0].color + ';"></div>' + param[0].seriesName + '：' +
-                value + '<br/><div style="float:left;margin:5px 5px 0 0;border-radius:10px;width:10px;height:10px;background-color:' + param[1].color + ';"></div>' + param[1].seriesName + '：' + value2
-        }
+        // formatter: function (param) {
+        //     console.log(param)
+        //     let value = that.TimeConversionS(param[0].value)
+        //     let value2 = that.TimeConversionS(param[1].value)
+        //     return param[0].name + '<br/><div style="float:left;margin:5px 5px 0 0;border-radius:10px;width:10px;height:10px;background-color:' + param[0].color + ';"></div>' + param[0].seriesName + '：' +
+        //         value + '<br/><div style="float:left;margin:5px 5px 0 0;border-radius:10px;width:10px;height:10px;background-color:' + param[1].color + ';"></div>' + param[1].seriesName + '：' + value2
+        // }
     },
     grid: {
         top: '20%',
@@ -1059,49 +1059,109 @@ Page({
     onLoad(options) {
 
         console.log(options);
+        this.setData({
+            deviceId: options.device_id
+        })
         getCompanyDeviceInfo(options.device_id).then(res => {
             console.log(res);
-            if(res.data.length == 0){
+            if (res.data.length == 0) {
                 this.setData({
                     deviceInfo: options,
                     image_path: options.image_path
                 })
-            }
-            else{
+            } else {
                 this.setData({
                     deviceInfo: res.data[0],
                     image_path: options.image_path
                 })
             }
-    
+
         });
         this.getTodayAndClass(options.device_id);
         this.getOutput(options.device_id);
         this.getEnergy(options.device_id);
+
+    },
+    onShow() {
+        console.log("隐藏了");
     },
     /**获取当日当班信息 */
     getTodayAndClass(deviceId) {
         getTodayAndClassEnergy(deviceId).then(res => {
             console.log(res);
             let data = res.data;
-            chartList.today.option.series[0].data = [data.today_output, data.today_electricity, data.today_water, data.today_gas];
-            chartList.class.option.series[0].data = [data.class_output, data.class_electricity, data.class_water, data.class_gas];
+            if (data) {
+                console.log('有数据');
+                chartList.today.option.series[0].data = [data.today_output, data.today_electricity, data.today_water, data.today_gas];
+                chartList.class.option.series[0].data = [data.class_output, data.class_electricity, data.class_water, data.class_gas];
+                console.log(chartList.today.option);
+                console.log(chartList.class.option);
 
-            // console.log(option);
-            this.setData({
-                ecToday: {
-                    // disableTouch: true,
-                    onInit: initChart,
-                },
-                // 当日单位能耗
-                today_unit_electricity: data.today_unit_electricity,
-                today_unit_gas: data.today_unit_gas,
-                today_unit_water: data.today_unit_water,
-                // 当班单位能耗
-                class_unit_electricity: data.class_unit_electricity,
-                class_unit_gas: data.class_unit_gas,
-                class_unit_water: data.class_unit_water,
-            })
+                if (chart1) chart1.setOption(chartList.today.option);
+                if (chart2) chart2.setOption(chartList.class.option);
+
+
+
+                this.setData({
+                    // ecToday: {
+                    //     // disableTouch: true,
+                    //     onInit: initChart,
+                    // },
+                    // ecClass: {
+                    //     onInit: initChart2,
+                    // },
+                    // 当日单位能耗
+                    today_unit_electricity: data.today_unit_electricity,
+                    today_unit_gas: data.today_unit_gas,
+                    today_unit_water: data.today_unit_water,
+                    // 当班单位能耗
+                    class_unit_electricity: data.class_unit_electricity,
+                    class_unit_gas: data.class_unit_gas,
+                    class_unit_water: data.class_unit_water,
+
+                })
+
+
+            } else {
+                console.log('无数据');
+                chartList.today.option.series[0].data = [0, 0, 0, 0];
+                chartList.class.option.series[0].data = [0, 0, 0, 0];
+
+               if(chart1) chart1.setOption(chartList.today.option);
+               if(chart2) chart2.setOption(chartList.class.option);
+
+                this.setData({
+                    // ecToday: {
+                    //     // disableTouch: true,
+                    //     onInit: initChart,
+                    // },
+                    // ecClass: {
+                    //     onInit: initChart2,
+                    // },
+                    // 当日单位能耗
+                    today_unit_electricity: 0,
+                    today_unit_gas: 0,
+                    today_unit_water: 0,
+                    // 当班单位能耗
+                    class_unit_electricity: 0,
+                    class_unit_gas: 0,
+                    class_unit_water: 0,
+
+
+                })
+                // setTimeout(function () {
+                //     this.setData({
+                //         ecToday: {
+                //             // disableTouch: true,
+                //             onInit: initChart,
+                //         },
+                //     })
+                // }, 500)
+
+
+            }
+
+
 
         })
     },
@@ -1167,30 +1227,35 @@ Page({
             chartList.alert.option.series[0].data = fault_count_array;
 
 
+            if (chart3) chart3.setOption(chartList.status.option);
+            if (chart4) chart4.setOption(chartList.duration.option);
+            if (chart5) chart5.setOption(chartList.mechineLine.option);
+            if (chart6) chart6.setOption(chartList.alert.option);
+
 
             this.setData({
                 open_time: secondToHMS(open_time),
                 fault_count: fault_count,
-                //状态统计
-                ecStatus: {
-                    // disableTouch: true,
-                    onInit: initChart3,
-                },
-                //运行时长
-                ecDuration: {
-                    // disableTouch: true,
-                    onInit: initChart4,
-                },
-                //产量计数
-                ecMechineLine: {
-                    // disableTouch: true,
-                    onInit: initChart5,
-                },
-                //故障次数
-                ecAlert: {
-                    // disableTouch: true,
-                    onInit: initChart6,
-                }
+                // //状态统计
+                // ecStatus: {
+                //     // disableTouch: true,
+                //     onInit: initChart3,
+                // },
+                // //运行时长
+                // ecDuration: {
+                //     // disableTouch: true,
+                //     onInit: initChart4,
+                // },
+                // //产量计数
+                // ecMechineLine: {
+                //     // disableTouch: true,
+                //     onInit: initChart5,
+                // },
+                // //故障次数
+                // ecAlert: {
+                //     // disableTouch: true,
+                //     onInit: initChart6,
+                // }
             })
         })
     },
@@ -1234,15 +1299,18 @@ Page({
             chartList.unitEnergy.option.series[1].data = unit_water_array;
             chartList.unitEnergy.option.series[2].data = unit_gas_array;
 
+            if (chart7) chart7.setOption(chartList.energy.option);
+            if (chart8) chart8.setOption(chartList.unitEnergy.option);
+
             this.setData({
-                ecEnergy: {
-                    onInit: initChart7,
-                    // disableTouch: true,
-                },
-                ecUnitEnergy: {
-                    onInit: initChart8,
-                    // disableTouch: true,
-                }
+                // ecEnergy: {
+                //     onInit: initChart7,
+                //     // disableTouch: true,
+                // },
+                // ecUnitEnergy: {
+                //     onInit: initChart8,
+                //     // disableTouch: true,
+                // }
             })
         })
     }

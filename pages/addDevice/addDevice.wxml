@@ -8,9 +8,10 @@
 
 
         <view class="base-information">
-                <view class="list">
+                <!-- 添加设备 -->
+                <view class="list" wx:if="{{addType}}">
                         <!-- 公司名称 -->
-                        <view wx:if="{{addType}}" class="flex" bindtap="componyFoucs" style="width:100%">
+                        <view  class="flex" bindtap="componyFoucs" style="width:100%">
                                 <view class="widths">
                                         <view class="test">
                                                 公司名称
@@ -21,7 +22,7 @@
                                         <view class="cuIcon-backs"></view>
                                 </view>
                         </view>
-                        <view wx:if="{{addType}}"  class="line"></view>
+                        <view   class="line"></view>
                         <!-- 设备名称 -->
                         <view  class="flex" style="width:100%">
                                 <view class="widths">
@@ -35,19 +36,19 @@
                         </view>
                         <view  class="line"></view>
                         <!-- 设备编号 -->
-                        <view wx:if="{{addType}}"  class="flex" style="width:100%">
+                        <view   class="flex" style="width:100%">
                                 <view class="widths">
                                         <view class="test">
                                                 设备编号
                                         </view>
                                         <input class="inputss" placeholder="请输入设备编号" bindinput="deviceId"
-                                                placeholder-style="color:#fff" type="text" />
+                                                placeholder-style="color:#fff" type="number" />
                                 </view>
 
                         </view>
-                        <view wx:if="{{addType}}"  class="line"></view>
+                        <view   class="line"></view>
                         <!-- 网关编号 -->
-                        <view wx:if="{{addType}}"  class="flex" style="width:100%">
+                        <view   class="flex" style="width:100%">
                                 <view class="widths">
                                         <view class="test">
                                                 网关编号
@@ -61,35 +62,35 @@
                                                         src="../../images/deivceManger/2.png"></image>
                                         </view> -->
                         </view>
-                        <view wx:if="{{addType}}"  class="line"></view>
+                        <view   class="line"></view>
                         <!-- 设备型号 -->
-                        <view wx:if="{{addType}}"  class="flex" bindtap="modelFoucs" style="width:100%">
+                        <view   class="flex" bindtap="modelFoucs" style="width:100%">
                                 <view class="widths">
                                         <view class="test">
                                                 设备型号
                                         </view>
-                                        <view class="inputs">{{device.model_name}}</view>
+                                        <view class="inputs">{{device.devicesdkName}}</view>
                                 </view>
                                 <view class="dropdown center">
                                         <view class="cuIcon-backs"></view>
                                 </view>
                         </view>
-                        <view wx:if="{{addType}}"  class="line"></view>
-                        <!-- 型号名称 -->
+                        <view   class="line"></view>
+                        <!-- 模型名称 -->
                         <view class="flex" style="width:100%">
                                 <view class="widths">
                                         <view class="test">
-                                                型号名称
+                                                模型名称
                                         </view>
-                                        <input class="inputs" placeholder="请输入设备编号" placeholder-style="color:#fff"
-                                                type="text" />
+                                        <input class="inputs" placeholder="请输入模型名称" placeholder-style="color:#fff"
+                                          bind:input="modelName"   type="text" />
                                 </view>
 
                         </view>
                         <view class="line"></view>
 
                         <!-- 地址 -->
-                        <view  wx:if="{{addType}}"  class="flex" bindtap="addressFoucs" style="width:100%">
+                        <view    class="flex" bindtap="addressFoucs" style="width:100%">
                                 <view class="widths">
                                         <view class="test">
                                                 地址
@@ -100,7 +101,7 @@
                                         <view class="cuIcon-backs"></view>
                                 </view>
                         </view>
-                        <view  wx:if="{{addType}}"  class="line"></view>
+                        <view    class="line"></view>
                         <!-- 设备图片 -->
                         <view class="flex" style="width:100%;height:200rpx;line-height:200rpx">
                                 <view class="widths ">
@@ -109,18 +110,69 @@
                                         </view>
                                         <view class="center" >
                                                 <view class="image center" style="margin-left:10px" bindtap="choseImage">
-                                                        <image style="height:100%;width:100%;" src="{{device.imageUrl}}" />
+                                                        <!-- <view wx:if="{{device.imageUrl}}" catchtap="deleteImage" class="deleteIcon"></view> -->
+                                                        <image style="height:100%;width:100%;" src="{{device.imageUrl}}" mode="aspectFill" />
                                                 </view>
                                              
                                                 <view class="image center" style="margin-left:10px" bindtap="choseImage">
-                                                        <image style="height:52rpx;width:52rpx;" src="../../images/deivceManger/add.png" alt=""/>
+                                                        <image style="height:52rpx;width:52rpx;" src="../../images/deivceManger/add.png" mode="aspectFill" alt=""/>
                                                 </view>
                                         </view>
-
-
                                 </view>
                         </view>
                 </view>
+                <!-- 编辑设备 -->
+                <view class="list" wx:if="{{!addType}}">
+ 
+                        <!-- 设备名称 -->
+                        <view  wx:if="{{power == '03' || power == '00'}}" class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                设备名称
+                                        </view>
+                                        <input class="inputss" placeholder="请输入设备名称" bind:input="deviceName"
+                                              value="{{device.device_name}}"  placeholder-style="color:#fff" type="text" />
+                                </view>
+
+                        </view>
+                        <view wx:if="{{power == '03' || power == '00'}}" class="line"></view>
+                   
+                        <!-- 模型名称 -->
+                        <view class="flex" style="width:100%">
+                                <view class="widths">
+                                        <view class="test">
+                                                模型名称
+                                        </view>
+                                        <input class="inputs" placeholder="请输入模型名称" placeholder-style="color:#fff"
+                                        value="{{device.model_name}}" bind:input="modelName"  type="text" />
+                                </view>
+
+                        </view>
+
+                        <view   class="line"></view>
+                        <!-- 设备图片 -->
+                        <view class="flex" style="width:100%;height:200rpx;line-height:200rpx">
+                                <view class="widths ">
+                                        <view class="test center">
+                                                设备图片
+                                        </view>
+                                        <view class="center" >
+                                                <view class="image center" style="margin-left:10px" bindtap="choseImage">
+                                                        <!-- <view wx:if="{{device.image_path}}" catchtap="deleteImage" class="deleteIcon"></view> -->
+                                                       
+                                                        <image wx:if="{{!device.imageUrl}}" style="height:100%;width:100%;" src="{{LoginUrl + device.image_path}}" mode="aspectFill" />
+                                                        <image wx:if="{{device.imageUrl}}" style="height:100%;width:100%;" src="{{device.imageUrl}}" mode="aspectFill" />
+                                                
+                                                </view>
+                                             
+                                                <view class="image center" style="margin-left:10px" bindtap="choseImage">
+                                                        <image style="height:52rpx;width:52rpx;" src="../../images/deivceManger/add.png" mode="aspectFill" alt=""/>
+                                                </view>
+                                        </view>
+                                </view>
+                        </view>
+                </view>
+
         </view>
         <button class="button" bindtap="confirm">
                 确定</button>
@@ -132,3 +184,6 @@
 
         <my-area show="{{address.show}}" bind:setItem="setAddress"></my-area>
 </view>
+
+
+<my-alert  isShowConfirm="{{isShowConfirm}}" bind:confirm="confirms"></my-alert>

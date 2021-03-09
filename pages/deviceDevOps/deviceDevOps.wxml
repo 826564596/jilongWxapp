@@ -9,7 +9,6 @@
 	<my-tabs bind:active="setActive" itemList="{{itemList}}" active="{{active}}" />
 	<!-- 设备故障 -->
 	<view wx:if="{{active == 0}}">
-
 		<view class="base-information">
 			<view class="high-input">
 				<view class="input class" bindtap="componyFoucs">
@@ -45,7 +44,8 @@
 						mode="aspectFit"></image>
 				</view>
 			</view>
-			<scroll-view class="srcoll-view" style=" height: calc(100vh - {{CustomBar +50 }}px - {{100 + 70 + 90}}rpx );"
+			<scroll-view class="srcoll-view"
+				style=" height: calc(100vh - {{CustomBar +50 }}px - {{100 + 70 + 90}}rpx );"
 				scroll-y="true" bindscrolltolower="lower">
 				<view class="List" wx:for="{{faultList}}">
 					<view class="List-content">
@@ -61,9 +61,6 @@
 					</view>
 				</view>
 			</scroll-view>
-
-
-
 		</view>
 	</view>
 	<!-- I/O状态 -->
@@ -92,29 +89,121 @@
 				</view>
 			</view>
 			<!-- 输入 -->
-			<view wx:for="{{paras}}" class="IO" wx:for-item="a">
+			<view wx:for="{{paras}}" class="IO" wx:for-item="a" wx:for-index="i">
 				<view class="IO-item-paras" wx:for="{{a.values}}" wx:for-index="idx">
 					<view class="item">
 						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}">
 						</view>
-						{{a.name}}.{{filters.toString(idx,16)}}
+						<!-- {{a.name}}.{{filters.toString(idx,16)}} -->
+						{{ "X" + i + "." + a.name[idx]}}
+
 					</view>
 				</view>
 			</view>
 			<!-- 输出 -->
-			<view wx:for="{{output}}" class="IO" wx:for-item="a">
+			<view wx:for="{{output}}" class="IO" wx:for-item="a" wx:for-index="i">
 				<view class="IO-item-paras" style="color:#fff" wx:for="{{a.values}}" wx:for-index="idx">
 					<view class="item">
 						<view class="block {{item == 1 ? 'icon-active' : 'icon-unactive'}}">
 						</view>
-						{{a.name}}.{{filters.toString(idx,16)}}
+						<!-- {{a.name}}.{{filters.toString(idx,16)}} -->
+						{{ "Y" + i + "." + a.name[idx]}}
+
+
 					</view>
 				</view>
 			</view>
 		</view>
 
 	</view>
+	<!-- 设备参数 -->
+	<view wx:if="{{ active == 2}}">
 
+		<view class="base-information">
+			<!-- 下拉框 -->
+			<view class="high-input">
+				<view class="input class" bindtap="componyFoucs">
+					<view wx:if="{{!company.content}}">请选择公司</view>
+					<view wx:if="{{company.content}}">{{company.content}}</view>
+				</view>
+				<view class="date-icon center" style="border-left:none">
+					<view class="top"></view>
+				</view>
+			</view>
+			<!-- 下拉框 -->
+			<view class="high-input">
+				<view style="margin-top:10rpx; margin-bottom:10rpx;width:100%" class="input class"
+					bindtap="deviceFoucs">
+					<view wx:if="{{!device.content}}">请选择设备</view>
+					<view wx:if="{{device.content}}">{{device.content}}</view>
+					<view style="float:left"></view>
+				</view>
+
+				<view class="date-icon center " style="border-left:none;margin-top:10rpx;">
+					<view class="top" style="margin-right:10rpx;"></view>
+				</view>
+
+				<!-- <view style=" text-align:center; margin-top:10rpx; margin-left:10rpx;width:40%"
+					class="input" bindtap="refresh">
+					一键刷新
+				</view> -->
+			</view>
+
+			<!-- 目录 -->
+			<view wx:if="{{catalogArray.length > 0}}" class="scrollX">
+				<view class="catalog">
+					<view class="catalog-heed"></view>
+					<view class="catalog-item {{index + 1 == catalogArray.length ? 'active-color' :''}}"
+						wx:for="{{catalogArray}}" wx:for-index="index" wx:for-item="item"
+						data-item="{{item}}" bindtap="nextLevel">
+						{{item.F_NAME}}
+
+
+						<text wx:if="{{index + 1 != catalogArray.length }}"
+							class="cuIcon-back"></text>
+					</view>
+
+				</view>
+			</view>
+
+			<scroll-view class="srcoll-view"
+				style=" height: calc(100vh - {{CustomBar +50 }}px - {{100 + 70 + 90 + 80}}rpx );"
+				scroll-y="true" bindscrolltolower="lowerOfParameter">
+				<!-- 参数列表 -->
+				<view wx:if="{{parameterArray.length > 0}}" class="parameter">
+					<view class="parameter-title">
+						<view>参数名称</view>
+						<view style="float:right;margin-right:10rpx;">实时数据</view>
+					</view> 
+
+					<view class="parameter-item" wx:for="{{parameterArray}}" wx:for-item="item">
+						
+						<view class="parameter-item-one" wx:if="{{item.F_LEAF == '1'}}">
+							 
+							<view  wx:if="{{device.state != '离线'}}"  data-paraId="{{item.F_PARAID}}" bindtap="refresh" class="refresh">刷新</view>
+							{{item.F_NAME}}
+
+							<view  style="float:right;margin-right:10rpx;" >{{item.value}}
+							</view>
+
+						</view>
+						<view class="parameter-item-two" wx:if="{{item.F_LEAF == '0'}}">
+							{{item.F_NAME}}
+							<view style="float:right;margin-right:10rpx;"
+								data-item="{{item}}" bindtap="nextLevel">下级</view>
+
+						</view>
+					</view>
+
+				</view>
+			</scroll-view>
+
+
+
+
+
+		</view>
+	</view>
 	<my-picker show="{{company.show}}" title="选择公司" columns="{{ company.pickerList}}" bind:setItem="setCompony">
 	</my-picker>
 	<my-picker show="{{device.show}}" title="选择设备" columns="{{ device.pickerList}}" bind:setItem="setDevice">
@@ -126,3 +215,11 @@
 	<!-- <my-date-picker show="{{ date.show }}" type="date" value="{{ currentDate }}" minDate="{{minDate}}" ></my-date-picker> -->
 
 </view>
+
+<loading hidden="{{loadingHidden}}">
+ 加载中...
+</loading>
+
+<loading hidden="{{loadingHidden2}}">
+ 加载中...
+</loading>

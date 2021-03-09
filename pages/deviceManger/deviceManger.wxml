@@ -20,15 +20,19 @@
                 <view style="margin-bottom:40px;">
 
                         <view class="list" wx:for="{{device.list}}" wx:for-item="item" style="margin-top:10rpx;">
-                                <view class="text">设备名称：{{item.device_name}}
+                                <view class="text">
+                                        <view class="texts" >
+                                                设备名称：{{item.device_name}}
 
-                                        <view style="float:right;display:flex;">
+                                        </view>
+                                        <view style="float:right;display:flex; ">
                                                 <view>
-                                                        <image data-item="{{item}}" bindtap="editorDevice" style="height:30rpx;width:30rpx;margin-right:20rpx"
+                                                        <image  data-item="{{item}}" bindtap="editorDevice" style="height:30rpx;width:30rpx;margin-right:20rpx"
                                                                 src="../../images/deivceManger/editor.png" alt="" />
                                                 </view>
                                                 <view>
-                                                        <image data-item="{{item}}"  bindtap="deleteDevice" style="height:30rpx;width:30rpx;"
+                                                       
+                                                        <image wx:if="{{power == '03' || power == '00'}}" data-item="{{item}}"  bindtap="deleteDevice" style="height:30rpx;width:30rpx;"
                                                                 src="../../images/deivceManger/delete.png" alt="" />
 
                                                 </view>
@@ -46,9 +50,10 @@
                 </view>
                 <!-- 添加设备按钮 -->
         </view>
-        <button class="button" bindtap="addDevice">
-                <image style="height:30rpx;width:30rpx;" src="../../images/deivceManger/delete.png" alt="" />
+        <button wx:if="{{power == '03' || power == '00'}}"  class="button" bindtap="addDevice">
+                <image  style="height:30rpx;width:30rpx;" src="../../images/deivceManger/add2.png" alt="" />
                 添加设备</button>
         <my-picker show="{{company.show}}" title="选择公司" columns="{{ company.pickerList}}" bind:setItem="setCompony">
         </my-picker>
 </view>
+<my-alert isShowConfirm="{{isShowConfirm}}"  bind:confirm="confirms"></my-alert>

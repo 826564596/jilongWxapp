@@ -19,9 +19,13 @@ Page({
                 value2: 0,
                 deviceList: [],
         },
+        // onLoad(){
+               
 
-        onLoad() {
+        // },
+        onShow() {
                 this.getTabBar().init(0);
+                
                 getCompanyList(app.globalData.userInfo.username).then(res => {
                         res.data = res.data.map((item, index) => {
                                 let a = {};
@@ -31,8 +35,8 @@ Page({
                                 return a;
                         });
                         this.setData({
-                                option1: res.data
-                               
+                                option1: res.data,
+                                value1:0,
                         })
                         return res.data[0];
                 }).then(res => {
@@ -68,7 +72,4 @@ Page({
                   url: `/pages/deviceMonitor/deviceMonitor` + objectToUrlNoEncodeURI(value),
                 })
         }
-
-
-
 });

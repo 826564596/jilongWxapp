@@ -6,10 +6,12 @@
 </navigation>
 <view class="container-notabbar" style="min-height: calc(100% - {{CustomBar}}px);">
 	<view class="base-information">
-		<scroll-view class="srcoll-view" style="height: calc(100vh - {{CustomBar +10}}px);" scroll-y="true"  bindscrolltolower="lower" >
+		<scroll-view class="srcoll-view" style="height: calc(100vh - {{CustomBar +10}}px);" scroll-y="true"
+			bindscrolltolower="lower">
 			<view class="list" wx:for="{{messageList}}">
 				<view>
-					<image style="height:34rpx;width:60rpx;" src="../../images/message/NEW.png"></image>
+					<image wx:if="{{item.msg_state == '未读'}}" style="height:34rpx;width:60rpx;"
+						src="../../images/message/NEW.png"></image>
 				</view>
 				<view class="text">设备名称：{{item.device_name}}</view>
 				<view class="line"></view>
@@ -19,8 +21,13 @@
 				<view class="line"></view>
 				<view class="text">接收时间：{{item.msg_time}}</view>
 				<view class="line"></view>
-				<view class="text">已读状态：{{item.msg_state}}</view>
+				<view class="text">已读状态：{{item.msg_state}}
 
+				</view>
+				<view class="line"></view>
+				<view  wx:if="{{item.msg_state == '未读'}}">
+					<button data-msg_id="{{item.msg_id}}" bindtap="setRead" class="unReadBtn">设为已读</button>
+				</view>
 			</view>
 		</scroll-view>
 

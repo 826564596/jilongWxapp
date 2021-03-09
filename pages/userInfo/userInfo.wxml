@@ -8,17 +8,17 @@
 		<!-- 头像名称 -->
 		<view class="icon-name">
 			<view class="icon">
-				<open-data type="userAvatarUrl"></open-data>
+				<image style="width:100%;height:100%;" src="../../images/userInfo/defaultIcon.png"></image>
+				<!-- <open-data type="userAvatarUrl"></open-data> -->
 				<view class="circle-big"> </view>
 				<view class="circle-small"> </view>
-
 			</view>
 			<view class="name">
 				{{userName}}
 				<!-- <open-data type="userNickName"></open-data> -->
 			</view>
 		</view>
-		<!-- 其他列表项 -->
+		<!-- 其他列表项 --> 
 		<view class="item-list">
 			<!-- 设备管理 -->
 			<view  class="item-list-item" bindtap="deviceManger">
@@ -40,12 +40,23 @@
 				<view class="cuIcon-back" style="margin-right:20rpx"></view>
 			</view>
 			<view wx:if="{{power == 03 || power == 00 }}" class="line"></view>
+
+			<!-- 操作密码管理 -->
+			<view wx:if="{{power == 03 || power == 00}}" class="item-list-item" bindtap="operationPasswordManger">
+				<view class="text-image">
+					<image src="../../images/userInfo/userManger.png" mode="" alt="" />
+					操作密码管理
+				</view>
+
+				<view class="cuIcon-back" style="margin-right:20rpx"></view>
+			</view>
+			<view wx:if="{{power == 03 || power == 00 }}" class="line"></view>
 			<!-- 关于我们 -->
 			<view class="item-list-item" bindtap="userInformation">
 				<view class="text-image">
 					<image src="../../images/userInfo/user.png" mode="" alt="" />
 					用户信息
-				</view>
+				</view> 
 
 				<view class="cuIcon-back" style="margin-right:20rpx"></view>
 			</view>
@@ -56,8 +67,9 @@
 				<view class="text-image">
 					<image src="../../images/userInfo/message.png" mode="" alt="" />
 					消息通知
+					<view wx:if="{{unReadMessage > 0}}" class='unReadMessage'>{{unReadMessage}}</view>
 				</view>
-
+				
 				<view class="cuIcon-back" style="margin-right:20rpx"></view>
 			</view>
 

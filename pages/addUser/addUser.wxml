@@ -48,7 +48,7 @@
                                                 手机号码
                                         </view>
                                         <input class="inputss" placeholder="请输入11位手机号码" bind:input="iptTelephone"
-                                               maxlength="11" placeholder-style="color:#fff" type="number" />
+                                           value="{{userInfo.telephone}}"   maxlength="11" placeholder-style="color:#fff" type="number" />
                                 </view>
 
                         </view>
@@ -57,3 +57,4 @@
         <button class="button" bindtap="confirm">
                 确定</button>
 </view>
+<my-alert isShowConfirm="{{isShowConfirm}}" bind:confirm="confirms"></my-alert>

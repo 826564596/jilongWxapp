@@ -10,7 +10,8 @@
         <scroll-view scroll-y="true" style=" height:calc(100vh - {{CustomBar + 50 + 55}}px);">
                 <view wx:for="{{deviceList}}" class="device-item" bindtap="detail" data-item="{{item}}">
                         <view class="device-item-left center">
-                                <image src="{{url }}{{item.image_path}}" />
+                                <image src="{{url}}{{item.image_path}}" />
+                                <!-- {{url}}{{item.image_path}} -->
                         </view>
                         <view class="device-item-right">
                                 <!-- 运行、待机、故障、离线 -->
@@ -18,8 +19,7 @@
                                         <image wx:if="{{item.state =='运行'}}" src="{{bgURL}}deviceList/运行图标.png"></image>
                                         <image wx:if="{{item.state =='待机'}}" src="{{bgURL}}deviceList/待机图标.png"></image>
                                         <image wx:if="{{item.state =='故障'}}" src="{{bgURL}}deviceList/故障图标.png"></image>
-                                        <image wx:if="{{item.state =='离线'}}" src="{{bgURL}}deviceList/警报图标.png ">
-                                        </image>
+                                        <image wx:if="{{item.state =='离线'}}" src="{{bgURL}}deviceList/警报图标.png"></image>
                                         {{item.state}}
                                 </view>
                                 <view>设备名称:{{item.device_name}}</view>
